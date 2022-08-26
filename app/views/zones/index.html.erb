@@ -1,14 +1,24 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Zones</h1>
+<h1>ZONAS</h1>
 
-<div id="zones">
+<table>
+  <tr>
+    <th>CODIGO</th>
+    <th>NOMBRE</th>
+    <th>ACCIONES</th>
+  </tr>
+  <div id="zones">
   <% @zones.each do |zone| %>
-    <%= render zone %>
-    <p>
-      <%= link_to "Show this zone", zone %>
-    </p>
+    <tr>
+      <td><%= zone.id %></td>
+      <td><%= zone.description %></td>
+      <td><%= link_to "Mostrar esta Zona", zone %>
+    </tr>    
+    <!--<%= render zone %>-->
   <% end %>
-</div>
+  </div>
+ </table> 
+ <%= link_to "Nueva Zona", new_zone_path %>
 
-<%= link_to "New zone", new_zone_path %>
+
