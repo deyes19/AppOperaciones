@@ -1,10 +1,24 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @zone %>
+<div class ="container">
+<div class="card" style="width:100%">
+<img class="card-img-top" src="../bootstrap4/img_avatar1.png" alt="Card image" style="width:100%">
+<div class="card-body">
+  <h4 class="card-title">Eliminar zona</h4>
+  <p class="card-text"><%= render @zone %></p>
+  <i>
+  <%= button_to "Eliminar", @zone, method: :delete, :class=>"bi bi-trash btn btn-danger" %>
+  <%= link_to " ", edit_zone_path(@zone), :class=>" bi bi-trash btn btn-danger" %> |
+  <%= link_to " ", zones_path, :class=>" bi bi-trash btn btn-danger" %>
+  </i>
+</div>
+
+</div>  
+
 
 <div>
-  <%= link_to "Edit this zone", edit_zone_path(@zone) %> |
-  <%= link_to "Back to zones", zones_path %>
+ 
 
-  <%= button_to "Destroy this zone", @zone, method: :delete %>
+  
+</div>
 </div>

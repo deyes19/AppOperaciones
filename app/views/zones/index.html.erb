@@ -3,6 +3,7 @@
 <!--Se agrega personalizacion con boostrap para visualizacion de las vistas de zonas -->
 <div class="container">
   <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+  <%= link_to "Nueva Zona", new_zone_path %>
   <div class="row">
       <div class="col-md-8">
       <div class="tzona">
@@ -19,14 +20,14 @@
     <tr>
       <td><%= zone.id %></td>
       <td><%= zone.description %></td>
-      <td><%= link_to "Mostrar esta Zona", zone %> <%= button_to "Destroy this zone", @zone, method: :delete %>
+      <td>
+         <div class="centrar"><i><%= link_to " ", zone, :class => " btn btn-danger bi bi-eye-fill" %></i> </div>
     </tr>
     <!--Se elimina la siguiente etiqueta a fin de que no se visualice todo el hash que contiene el modelo zone-->    
     <!--<#%= render zone %>-->
   <% end %>
   </div>
  </table> 
-<%= link_to "Nueva Zona", new_zone_path %>
  </div>
  </div>
 
