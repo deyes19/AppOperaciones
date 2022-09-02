@@ -12,21 +12,21 @@
     <tr>
       <th>CODIGO</th>
       <th>NOMBRE</th>
-      <th>ACCIONES</th>
+      <th class="acciones">ACCIONES</th>
     </tr>
   <div id="zones">
   <% @zones.each do |zone| %>
     <tr>
       <td><%= zone.id %></td>
       <td><%= zone.description %></td>
-      <td><%= link_to "Mostrar esta Zona", zone %>
+      <td><%= link_to "Mostrar esta Zona", zone %> <%= button_to "Destroy this zone", @zone, method: :delete %>
     </tr>
     <!--Se elimina la siguiente etiqueta a fin de que no se visualice todo el hash que contiene el modelo zone-->    
     <!--<#%= render zone %>-->
   <% end %>
   </div>
  </table> 
- <%= link_to "Nueva Zona", new_zone_path %>
+<%= link_to "Nueva Zona", new_zone_path %>
  </div>
  </div>
 
