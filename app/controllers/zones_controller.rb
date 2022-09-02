@@ -17,6 +17,7 @@ class ZonesController < ApplicationController
 
   # GET /zones/1/edit
   def edit
+    @zone= Zone.find(params[:id])
   end
 
   # POST /zones or /zones.json

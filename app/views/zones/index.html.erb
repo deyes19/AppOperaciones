@@ -6,17 +6,19 @@
 
 
 
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark rounded">
   <div class="container-fluid">
     <div class="navbar-collapse" id="mynavbar">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-        <i><%= link_to " Nueva Zona", new_zone_path, :class=>"bi bi-plus-square-dotted nav-item nav-link" %></i>
+        <i>
+          <%= link_to " Nueva Zona", new_zone_path, :class=>"nav-item nav-link bi bi-plus-square-dotted" %>
+        </i>
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="text" placeholder="Search">
-        <button class="btn btn-primary" type="button">Search</button>
+        <input class="form-control me-2" type="text" placeholder="zona">
+        <button class="btn btn-primary" type="button">Buscar</button>
       </form>
     </div>
   </div>
@@ -37,10 +39,20 @@
   <div id="zones">
   <% @zones.each do |zone| %>
     <tr>
-      <td><%= zone.id %></td>
+      <td><%= zone.id%></td>
       <td><%= zone.description %></td>
       <td>
-         <div class="centrar"><i><%= link_to " ", zone, :class => " btn btn-danger bi bi-eye-fill" %></i> </div>
+         <div class="centrar d-flex p-3 justify-content-center">
+         <i>
+         <%= link_to " ", zone, :class => " acciones btn btn-danger bi bi-eye-fill p-1 " %>
+         </i> 
+         <i>
+         <%= link_to " ", zone, method: :edit, :class=>" acciones bi bi-pencil btn btn-danger p-1" %>
+         </i>
+         <i>
+         <%= link_to " ", zone, method: :delete, confirm: "Estas seguro?", :class=>" acciones bi bi-trash btn btn-danger p-1" %>
+         </i>
+         </div>
     </tr>
     <!--Se elimina la siguiente etiqueta a fin de que no se visualice todo el hash que contiene el modelo zone-->    
     <!--<#%= render zone %>-->
