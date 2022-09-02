@@ -3,7 +3,26 @@
 <!--Se agrega personalizacion con boostrap para visualizacion de las vistas de zonas -->
 <div class="container">
   <!-- Stack the columns on mobile by making one full-width and the other half-width -->
-  <%= link_to "Nueva Zona", new_zone_path %>
+
+
+
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+        <i><%= link_to " Nueva Zona", new_zone_path, :class=>"bi bi-plus-square-dotted nav-item nav-link" %></i>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="text" placeholder="Search">
+        <button class="btn btn-primary" type="button">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+  
   <div class="row">
       <div class="col-md-8">
       <div class="tzona">

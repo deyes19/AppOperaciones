@@ -1,0 +1,83 @@
+[33mcommit 146bfd3e4b8739f3e4e98f4eeb3e13d7f0315ccc[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: deyes19 <deyes1219@gmail.com>
+Date:   Thu Sep 1 16:27:14 2022 -0500
+
+    organizando tabla de vista zonas
+
+[33mcommit 4501e6e916f6f0bbe4c0703a0f0a58be41bade99[m
+Author: deyes19 <deyes1219@gmail.com>
+Date:   Thu Sep 1 14:51:38 2022 -0500
+
+    se inserta la primera imagen en la vista general y se cambia el nav
+
+[33mcommit b408ced8acb0a05b552153bcb647700d8e03d4b6[m
+Author: deyes19 <deyes1219@gmail.com>
+Date:   Wed Aug 31 14:47:17 2022 -0500
+
+    inicia deimer a trabajar css
+
+[33mcommit 5a177674faf0e22b063466e1c82fd55367afe949[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: carlos-perez-record <42840434+carlos-perez-record@users.noreply.github.com>
+Date:   Mon Aug 29 16:29:57 2022 -0500
+
+    Se hacen pequeñas modificaciones en las vistas de center
+
+[33mcommit afc2a2780aae59adaf3d3e06fd47d4ecbf4754e2[m
+Author: carlos-perez-record <42840434+carlos-perez-record@users.noreply.github.com>
+Date:   Mon Aug 29 15:00:03 2022 -0500
+
+    Se hace migracion de la tabla center
+
+[33mcommit 53a41fd310daaf01f6af12ab46622281f29b3424[m
+Author: carlos-perez-record <42840434+carlos-perez-record@users.noreply.github.com>
+Date:   Mon Aug 29 14:40:22 2022 -0500
+
+    Se crea entidad center a travez de scaffold
+
+[33mcommit 1b799ac731aef75ad575fce27c7e113cc9993629[m
+Author: carlos-perez-record <42840434+carlos-perez-record@users.noreply.github.com>
+Date:   Mon Aug 29 14:36:35 2022 -0500
+
+    Se agrega diseño boostrap a la vista aplication
+
+[33mcommit 39072eac80e8a0c9e35e0c77f4d5a4a971ca3831[m
+Author: carlos-perez-record <42840434+carlos-perez-record@users.noreply.github.com>
+Date:   Mon Aug 29 11:37:15 2022 -0500
+
+    Se agrega personalizacion con boostrap de las vistas de zone
+
+[33mcommit 253b24c128ae1c5cca35cf1f5edd66c35ab26809[m
+Author: carlos-perez-record <42840434+carlos-perez-record@users.noreply.github.com>
+Date:   Mon Aug 29 11:17:45 2022 -0500
+
+    Se hacen modificaciones para agregar el campo id para asignarselo manualmente a los registros del modelo
+
+[33mcommit 428d28888f267ab9976bc9a377d41a5ceaf00b9a[m
+Author: carlos-perez-record <42840434+carlos-perez-record@users.noreply.github.com>
+Date:   Mon Aug 29 10:30:57 2022 -0500
+
+    Se hace la instalacion de boostrap con rails 7
+
+[33mcommit 8ff3d0a7a117f3039473ac2c05f2dedd6c1f92ec[m
+Author: carlos-perez-record <42840434+carlos-perez-record@users.noreply.github.com>
+Date:   Fri Aug 26 16:34:52 2022 -0500
+
+    Se hacen ajustes en la vista index de zones, a fin de realizar el diseño basico de la vista
+
+[33mcommit 9212f452027c7a90beb8031a6b1c1d4205f7f4e0[m
+Author: carlos-perez-record <42840434+carlos-perez-record@users.noreply.github.com>
+Date:   Fri Aug 26 16:03:49 2022 -0500
+
+    Se crea la base de datos, y a travez de workbench, se agrega el primer registro
+
+[33mcommit bec5bbf308b2315c606c3da37ba9e45d50096190[m
+Author: carlos-perez-record <42840434+carlos-perez-record@users.noreply.github.com>
+Date:   Thu Aug 25 13:56:05 2022 -0500
+
+    Se crea el primer scaffold de la entidad zone
+
+[33mcommit 706a57ef87d7b96da5a73938f2b9b12b8f9addf3[m
+Author: carlos-perez-record <42840434+carlos-perez-record@users.noreply.github.com>
+Date:   Thu Aug 25 09:48:28 2022 -0500
+
+    Se crea el proyecto con BD MySQL
