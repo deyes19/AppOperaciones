@@ -11,16 +11,17 @@
     </div>
   <% end %>
   <!--Se agrega campo para asignarle manualmente el ID a cada registro-->
-  <div>
-    <%= form.label :id, style: "display: block" %>
-    <%= form.text_field :id %>
+ <div class="container mt-3">
+  <div class="mb-3 mt-3">
+    <%= form.label :id, :class=>"form-label", style: "display: block" %>
+    <%= form.text_field :id, :class=>"form-control" %>
   </div>
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
+  <div class="mb-3">
+    <%= form.label :description, :class=>"form-label", style: "display: block" %>
+    <%= form.text_field :description, :class=>"form-control" %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Actualizar información", :class=>"btn "  %>
   </div>
 <% end %>
