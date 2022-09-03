@@ -49,7 +49,7 @@ class ZonesController < ApplicationController
 
   # DELETE /zones/1 or /zones/1.json
   def destroy
-    @zone=Zone.find(params[:id])
+    @zone = Zone.find(params[:id])
     @zone.destroy
 
     redirect_to zones_path, notice:'Tu zona se ha eliminado', status: :see_other

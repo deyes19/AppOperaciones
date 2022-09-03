@@ -3,14 +3,22 @@
 <div class ="container">
 <div class="card bg-dark text-white" style="width:100%">
 <div class="card-body">
-  <h4 class="card-title">información de la zona</h4>
-  <%= image_tag("record.png", :class => "", :width => "300px") %>
-  <p class="card-text"><%= render @zone %></p>
-  <i>
-  <%= button_to " ", @zone, method: :delete, :class=>"bi bi-trash btn btn-success" %>|
-  <%= link_to " ", edit_zone_path(@zone), :class=>" bi bi-pencil-fill btn btn-success" %> |
-  <%= link_to " ", zones_path, :class=>" bi bi-skip-backward-fill btn btn-success" %>
-  </i>
+  <h2 class="card-title">INFORMACION DE LA ZONA</h2>
+  <div class="row">
+  <div class="col"><%= image_tag("record.png", :class => "", :width => "300px") %></div>
+  <div class="col">
+  <h4 class="card-title">INFORMACION DE LA ZONA</h4>
+    <%= render @zone %>
+    <i>
+      <ul class="separar d-flex">
+            <li><%= button_to " Eliminar", @zone, method: :delete, :class=>"bi bi-trash btn btn-danger" %></li>
+            <li><%= link_to " Editar", edit_zone_path(@zone), :class=>" bi bi-pencil-fill btn btn-danger" %></li>
+            <li><%= link_to " Regresar", zones_path, :class=>" bi bi-skip-backward-fill btn btn-danger" %></li>
+      </ul>
+    </i>
+  </div>
+</div>
+  
 </div>
 
 </div>  
