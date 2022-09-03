@@ -17,7 +17,6 @@ class ZonesController < ApplicationController
 
   # GET /zones/1/edit
   def edit
-    @zone= Zone.find(params[:id])
   end
 
   # POST /zones or /zones.json
@@ -50,12 +49,10 @@ class ZonesController < ApplicationController
 
   # DELETE /zones/1 or /zones/1.json
   def destroy
+    @zone=Zone.find(params[:id])
     @zone.destroy
 
-    respond_to do |format|
-      format.html { redirect_to zones_url, notice: "La zona fue eliminada" }
-      format.json { head :no_content }
-    end
+    redirect_to zones_path, notice:'Tu zona se ha eliminado', status: :see_other
   end
 
   private

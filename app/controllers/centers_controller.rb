@@ -52,7 +52,7 @@ class CentersController < ApplicationController
     @center.destroy
 
     respond_to do |format|
-      format.html { redirect_to centers_url, notice: "Center was successfully destroyed." }
+      format.html { redirect_to centers_url, notice: "Center was successfully destroyed."}
       format.json { head :no_content }
     end
   end
