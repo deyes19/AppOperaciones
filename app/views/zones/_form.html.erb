@@ -22,6 +22,14 @@
   </div>
 
   <div>
-    <%= form.submit "Actualizar información", :class=>"btn "  %>
+    <i class= "separar d-flex bi">
+      <span class="">
+        <%= button_tag(:type => 'submit', :title=>'Actualiza los datos', :class => 'bi bi-arrow-counterclockwise btn btn-success') do %>
+          <i class="icon-up-arrow icon-white"></i>
+        <% end %>
+          
+      </span>
+        <%= link_to "", zones_path, :class=>"bi bi-skip-backward-btn-fill btn btn-danger", :title=>'Retornar a las zonas' %>
+    </i>
   </div>
 <% end %>
