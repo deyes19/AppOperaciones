@@ -1,10 +1,30 @@
-<h1>Editando Zona</h1>
+<div class="container">
+  <div class="row">
+      <div class="col-md-8">
+        <div class="tzona">
+            <h1>EDICIÓN DE ZONAS</h1>
+        </div>
+      </div>
+  </div>
+</div>
 
-<%= render "form", zone: @zone %>
-
+<div class ="container">
+  <div class="card bg-dark text-white" style="width:100%">
+    <div class="card-body">
+      <h2 class="card-title">CREACIÓN DE LA ZONA</h2>
+      <div class="row">
+        <div class="col"><%= image_tag("record.png", :class => "mx-auto d-block", :width => "300px") %></div>
+          <div class="col">
+            <h4 class=" acciones card-title">DATOS DE LA ZONA</h4>
+                <div class="centrarcard"><%= render "form", zone: @zone %></div><br>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>
 <br>
-
 <div>
-  <%= link_to "Ver datos", @zone %> |
-  <%= link_to "Regresa a menu de zonas", zones_path %>
+
 </div>

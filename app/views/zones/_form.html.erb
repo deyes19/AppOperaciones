@@ -13,11 +13,11 @@
   <!--Se agrega campo para asignarle manualmente el ID a cada registro-->
  <div class="container mt-3">
   <div class="mb-3 mt-3">
-    <%= form.label :id, :class=>"form-label", style: "display: block" %>
+    <%= form.label "Identificador de la zona", :class=>"form-label", style: "display: block" %>
     <%= form.text_field :id, :class=>"form-control" %>
   </div>
   <div class="mb-3">
-    <%= form.label :description, :class=>"form-label", style: "display: block" %>
+    <%= form.label "Nombre de la zona", :class=>"form-label", style: "display: block" %>
     <%= form.text_field :description, :class=>"form-control" %>
   </div>
 
@@ -29,6 +29,7 @@
         <% end %>
           
       </span>
+        <%= link_to " ", @zone, :class=>"bi bi-eye-fill btn btn-danger", :title=>"Ver datos" %> 
         <%= link_to "", zones_path, :class=>"bi bi-skip-backward-btn-fill btn btn-danger", :title=>'Retornar a las zonas' %>
     </i>
   </div>
