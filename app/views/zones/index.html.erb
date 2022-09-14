@@ -6,7 +6,7 @@
 
 
 
-  <nav class="navbar navbar-expand-sm navbar-rednav bg-rednav rounded">
+  <nav class="navbar navsep navbar-expand-sm navbar-rednav bg-rednav rounded">
   <div class="container-fluid">
     <div class="navbar-collapse" id="mynavbar">
       <ul class="navbar-nav me-auto">
@@ -18,7 +18,7 @@
       </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="text" placeholder="zona">
-        <button class="btn btn-primary" type="button">Buscar</button>
+        <button class="btn btn-secondary" type="button">Buscar</button>
       </form>
     </div>
   </div>
@@ -30,11 +30,11 @@
       <div class="tzona">
           <h1>ZONAS</h1>
       </div>
-   <table class="acciones table table-dark table-hover">
-    <tr>
-      <th>CODIGO</th>
+   <table class="table table-dark table-hover">
+    <tr class="text-dark">
+      <th>CÓDIGO</th>
       <th>NOMBRE</th>
-      <th class="acciones">ACCIONES</th>
+      <th>ACCIONES</th>
     </tr>
   <div id="zones">
   <% @zones.each do |zone| %>
@@ -46,14 +46,19 @@
        <%= zone.description %>
       </td>
       <td>
-         <i>
-         <%= link_to "", zone, :class => " bi bi-eye-fill btn btn-danger acciones ", :title => "Ver opciones" %>
+         <i class="separar">
+         <%= link_to "", zone, :class => " bi bi-eye-fill btn", :title => "Ver opciones" %>
+         <%= button_to "", @zone, method: :delete, :class=>"bi bi-trash btn" %>
          </i> 
     </tr>
   <% end %>
   </div>
  </table> 
- </div>
- </div>
+ <div class="fzona">
+    "Lo hacemos fácil, para hacerte feliz, en donde quiera que estés"
+    
 
+  </div>
+ </div>
+ </div>
 

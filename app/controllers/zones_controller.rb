@@ -52,9 +52,9 @@ class ZonesController < ApplicationController
     @zone = Zone.find(params[:id])
     @zone.destroy
 
-    redirect_to zones_path, notice:'Tu zona se ha eliminado', status: :see_other
+    redirect_to zones_path, notice: 'Tu producto se ha eliminado correctamente', status: :see_other
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_zone
