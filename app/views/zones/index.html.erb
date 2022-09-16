@@ -1,4 +1,4 @@
-<p style="color: green"><%= notice %></p>
+<%= notice %></p>
 
 <!--Se agrega personalizacion con boostrap para visualizacion de las vistas de zonas -->
 <div class="container">
@@ -47,8 +47,8 @@
                             </td>
                             <td>
                               <i class="separar">
-                              <%= link_to "", zone, :class => " bi bi-eye-fill btn", :title => "Ver opciones" %>
-                              <%= button_to "", @zone, method: :delete, :class=>"bi bi-trash btn" %>
+                              <%= button_to "", zone, method: :delete, :class=>"bi bi-trash btn", :data=>{turbo_confirm:'Estás seguro?'}%>
+                              <%= link_to "", edit_zone_path(zone), :title=>"Editar", :class=>" bi bi-pencil-fill btn" %>
                               </i>
                             </td> 
                           </tr>

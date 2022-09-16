@@ -24,13 +24,13 @@
   <div>
     <i class= "separar d-flex bi">
       <span class="">
-        <%= button_tag(:type => 'submit', :title=>'Actualiza los datos', :class => 'bi bi-arrow-counterclockwise btn btn-success') do %>
+        <%= button_tag(:type => 'submit', :title=>'Actualiza los datos', :class => 'bi bi-arrow-counterclockwise btn') do %>
           <i class="icon-up-arrow icon-white"></i>
         <% end %>
           
       </span>
-        <%= link_to " ", @zone, :class=>"bi bi-eye-fill btn btn-danger", :title=>"Ver datos" %> 
-        <%= link_to "", zones_path, :class=>"bi bi-skip-backward-btn-fill btn btn-danger", :title=>'Retornar a las zonas' %>
+        <%= link_to " ", @zone, :class=>"bi bi-eye-fill btn", :title=>"Ver datos" %> 
+        <%= link_to "", zones_path, :class=>"bi bi-skip-backward-btn-fill btn", :title=>'Retornar a las zonas' %>
     </i>
   </div>
 <% end %>

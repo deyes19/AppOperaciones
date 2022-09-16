@@ -11,19 +11,19 @@
 </div>
 
 <div class ="container">
-<div class="card bg-dark text-white" style="width:100%">
+<div class="card card-dark text-white" style="width:100%">
   <div class="card-body">
     <h2 class="card-title"></h2>
     <div class="row">
-      <div class="col"><%= image_tag("record.png", :class => "", :width => "300px") %></div>
+      <div class=" logo col-auto"><%= image_tag("record.png", :class => "", :width => "400px") %></div>
         <div class="col">
-          <h4 class=" acciones card-title">DATOS DE LA ZONA</h4>
+          <h4 class="card-title ">DATOS DE LA ZONA</h4>
               <div class="centrarcard"><%= render @zone %></div>
               <i>
                 <ul class="separar d-flex">
-                  <li><%= button_to " Eliminar", @zone, method: :delete, :class=>"bi bi-trash btn btn-danger" %></li>
-                  <li><%= link_to " Editar", edit_zone_path(@zone), :class=>" bi bi-pencil-fill btn btn-danger" %></li>
-                  <li><%= link_to " Regresar", zones_path, :class=>" bi bi-skip-backward-fill btn btn-danger" %></li>
+                  <li><%= button_to "", @zone, method: :delete, :title=>"Eliminar", :class=>"bi bi-trash btn" %></li>
+                  <li><%= link_to "", edit_zone_path(@zone), :title=>"Editar", :class=>" bi bi-pencil-fill btn" %></li>
+                  <li><%= link_to "", zones_path, :title=>"Regresar a zonas", :class=>" bi bi-skip-backward-fill btn" %></li>
                 </ul>
               </i>
           </div>
