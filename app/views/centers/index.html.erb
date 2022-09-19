@@ -1,14 +1,67 @@
-<p style="color: green"><%= notice %></p>
+<% if flash[:notice] %>
+    <div class="alert alert-success" role="alert" id="notice" class="notice">
+        <%= flash[:notice] %>                                    
+    </div>
+<% end %>
 
-<h1>CENTROS DE COSTO</h1>
+<!--Se agrega personalizacion con boostrap para visualizacion de las vistas de zonas -->
+<div class="container">
+  <!-- Stack the columns on mobile by making one full-width and the other half-width -->
 
-<div id="centers">
-  <% @centers.each do |center| %>
-    <%= render center %>
-    <p>
-      <%= link_to "Show this center", center %>
-    </p>
-  <% end %>
+
+
+  <nav class="navbar navsep navbar-expand-sm navbar-rednav bg-rednav rounded">
+    <div class="container-fluid">
+      <div class="navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+          <i>
+            <%= link_to " Nuevo centro de costo", new_center_path, :class=>"nav-item nav-link bi bi-plus-square-dotted" %>
+          </i>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="text" placeholder="center">
+          <button class="btn btn-secondary" type="button">Buscar</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  
+  <div class="row">
+      <div class="col-md-8">
+        <div class="tzona">
+            <h1>CENTROS DE COSTO</h1>
+        </div>
+            <table class="table table-dark table-hover">
+                  <tr class="text-dark">
+                    <th>CÓDIGO</th>
+                    <th>NOMBRE</th>
+                    <th>ACCIONES</th>
+                  </tr>
+                      <div id="centers">
+                        <% @centers.each do |center| %>
+                          <tr>
+                            <td>
+                              <%= center.id%>
+                            </td>
+                            <td>
+                              <%= center.name %>
+                            </td>
+                            <td>
+                              <i class="separar">
+                              <%= button_to "", center, method: :delete, :class=>"bi bi-trash btn", :data=>{turbo_confirm:'Estás seguro?'}%>
+                              <%= link_to "", edit_center_path(center), :title=>"Editar", :class=>" bi bi-pencil-fill btn" %>
+                              </i>
+                            </td> 
+                          </tr>
+                        <% end %>
+                      </div>
+            </table> 
+      </div>
+  </div>
 </div>
 
-<%= link_to "New center", new_center_path %>
+
+

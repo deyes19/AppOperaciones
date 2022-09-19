@@ -1,31 +1,33 @@
 class CentersController < ApplicationController
   before_action :set_center, only: %i[ show edit update destroy ]
 
-  # GET /centers or /centers.json
+  # GET /zones or /zones.json
   def index
     @centers = Center.all
   end
 
-  # GET /centers/1 or /centers/1.json
+  # GET /zones/1 or /zones/1.json
   def show
   end
 
-  # GET /centers/new
+  # GET /zones/new
   def new
     @center = Center.new
+    
   end
 
-  # GET /centers/1/edit
+  # GET /zones/1/edit
   def edit
+    @center=Center.find(params[:id])
   end
 
-  # POST /centers or /centers.json
+  # POST /zones or /zones.json
   def create
     @center = Center.new(center_params)
 
     respond_to do |format|
       if @center.save
-        format.html { redirect_to center_url(@center), notice: "Center was successfully created." }
+        format.html { redirect_to centers_path, notice: 'Tu producto se ha creado correctamente', status: :see_other }
         format.json { render :show, status: :created, location: @center }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -34,11 +36,11 @@ class CentersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /centers/1 or /centers/1.json
+  # PATCH/PUT /zones/1 or /zones/1.json
   def update
     respond_to do |format|
       if @center.update(center_params)
-        format.html { redirect_to center_url(@center), notice: "Center was successfully updated." }
+        format.html { redirect_to centers_path, notice: 'Tu producto se ha actualizado correctamente', status: :see_other }
         format.json { render :show, status: :ok, location: @center }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -47,16 +49,13 @@ class CentersController < ApplicationController
     end
   end
 
-  # DELETE /centers/1 or /centers/1.json
+  # DELETE /zones/1 or /zones/1.json
   def destroy
-    @center.destroy
-
-    respond_to do |format|
-      format.html { redirect_to centers_url, notice: "Center was successfully destroyed."}
-      format.json { head :no_content }
-    end
+    center = Center.find(params[:id])
+    center.destroy
+    redirect_to centers_path, notice: 'Tu producto se ha eliminado correctamente', status: :see_other
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_center
@@ -65,6 +64,6 @@ class CentersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def center_params
-      params.require(:center).permit(:name)
+      params.require(:center).permit(:id, :name)
     end
 end

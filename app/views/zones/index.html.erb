@@ -1,4 +1,8 @@
-<%= notice %></p>
+<% if flash[:notice] %>
+    <div class="alert alert-success" role="alert" id="notice" class="notice">
+        <%= flash[:notice] %>                                    
+    </div>
+<% end %>
 
 <!--Se agrega personalizacion con boostrap para visualizacion de las vistas de zonas -->
 <div class="container">
