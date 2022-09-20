@@ -1,0 +1,36 @@
+<%= form_with(model: destination) do |form| %>
+  <% if destination.errors.any? %>
+  <div style="color: red">
+    <h2><%= pluralize(cdestination.errors.count, "error") %> prohibited this center from being saved:</h2>
+
+    <ul>
+      <% destination.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<!--Se agrega campo para asignarle manualmente el ID a cada registro-->
+<div class="container mt-3">
+<div class="mb-3 mt-3">
+  <%= form.label "Identificador de destino", :class=>"form-label", style: "display: block" %>
+  <%= form.text_field :id, :class=>"form-control" %>
+</div>
+<div class="mb-3">
+  <%= form.label "Nombre del destino", :class=>"form-label", style: "display: block" %>
+  <%= form.text_field :description, :class=>"form-control" %>
+</div>
+
+<div>
+  <i class= "separar d-flex bi">
+    <span class="">
+      <%= button_tag(:type => 'submit', :title=>'Actualiza los datos', :class => 'bi bi-arrow-counterclockwise btn') do %>
+        <i class="icon-up-arrow icon-white"></i>
+      <% end %>
+        
+    </span>
+      <%= link_to " ", @destination, :class=>"bi bi-eye-fill btn", :title=>"Ver datos" %> 
+      <%= link_to "", destinations_path, :class=>"bi bi-skip-backward-btn-fill btn", :title=>'Retornar a las zonas' %>
+  </i>
+</div>
+<% end %>
