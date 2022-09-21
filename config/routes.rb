@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :actives
+  resources :active_types
+  resources :suppliers
+  resources :kinds
+  resources :brands
+  resources :responsibles
+  resources :invoices
   resources :groups
   resources :destinations
   resources :destinos
