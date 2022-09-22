@@ -1,0 +1,50 @@
+<%= form_with(model: active) do |form| %>
+  <% if active.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(active.errors.count, "error") %> prohibited this active from being saved:</h2>
+
+      <ul>
+        <% active.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!--Se agrega campo para asignarle manualmente el ID a cada registro-->
+  <div class="container mt-3 text-center">
+    <div class="row">
+      <div class="col">
+          <div class="mb-3">
+            <%= form.label "Placa del activo", :class=>"form-label", style: "display: block" %>
+            <%= form.text_field :id, :class=>"form-control" %>
+          </div>
+          <div class="mb-3">
+              <%= form.label "Código de barras del activo", :class=>"form-label", style: "display: block" %>
+              <%= form.text_field :barcode, :class=>"form-control" %>
+          </div>
+        </div>
+      
+        <div class="col">
+          <div class="mb-3">
+            <%= form.label "Nombre del activo", :class=>"form-label", style: "display: block" %>
+            <%= form.text_field :name, :class=>"form-control" %>
+          </div>
+          <div class="mb-3">
+            <%= form.label "Serial del activo", :class=>"form-label", style: "display: block" %>
+            <%= form.text_field :serial, :class=>"form-control" %>
+          </div>  
+        <div>
+      </div>
+      </div>
+    </div>
+    <i class= "separar d-flex bi">
+          <span class="">
+            <%= button_tag(:type => 'submit', :title=>'Actualiza los datos', :class => 'bi bi-arrow-counterclockwise btn') do %>
+              <i class="icon-up-arrow icon-white"></i>
+            <% end %>
+            
+        </span>
+          <%= link_to "", actives_path, :class=>"bi bi-skip-backward-btn-fill btn", :title=>'Retornar a los activos' %>
+        </i>
+ <% end %>

@@ -1,0 +1,64 @@
+<% if flash[:notice] %>
+    <div class="alert alert-success" role="alert" id="notice" class="notice">
+        <%= flash[:notice] %>                                    
+    </div>
+<% end %>
+
+<!--Se agrega personalizacion con boostrap para visualizacion de las vistas de zonas -->
+<div class="container">
+  <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+
+
+
+  <nav class="navbar navsep navbar-expand-sm navbar-rednav bg-rednav rounded">
+    <div class="container-fluid">
+      <div class="navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+          <i>
+            <%= link_to " Nueva clase de activo", new_kind_path, :class=>"nav-item nav-link bi bi-plus-square-dotted" %>
+          </i>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="text" placeholder="kind">
+          <button class="btn btn-secondary" type="button">Buscar</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  
+  <div class="row">
+      <div class="col-md-8">
+        <div class="tzona">
+            <h1>CLASES DE ACTIVOS</h1>
+        </div>
+            <table class="table table-dark table-hover">
+                  <tr class="text-dark">
+                    <th>CÓDIGO</th>
+                    <th>NOMBRE</th>
+                    <th>ACCIONES</th>
+                  </tr>
+                      <div id="kinds">
+                        <% @kinds.each do |kind| %>
+                          <tr>
+                            <td>
+                              <%= kind.id%>
+                            </td>
+                            <td>
+                              <%= kind.name %>
+                            </td>
+                            <td>
+                              <i class="separar">
+                              <%= button_to "", kind, method: :delete, :class=>"bi bi-trash btn", :data=>{turbo_confirm:'Estás seguro?'}%>
+                              <%= link_to "", edit_kind_path(kind), :title=>"Editar", :class=>" bi bi-pencil-fill btn" %>
+                              </i>
+                            </td> 
+                          </tr>
+                        <% end %>
+                      </div>
+            </table> 
+      </div>
+  </div>
+</div>

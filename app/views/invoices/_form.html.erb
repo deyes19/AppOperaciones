@@ -1,0 +1,39 @@
+<%= form_with(model: invoice) do |form| %>
+  <% if invoice.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(invoice.errors.count, "error") %> prohibited this center from being saved:</h2>
+
+      <ul>
+        <% invoice.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <!--Se agrega campo para asignarle manualmente el ID a cada registro-->
+ <div class="container mt-3">
+  <div class="mb-3 mt-3">
+    <%= form.label "Id de factura", :class=>"form-label", style: "display: block" %>
+    <%= form.text_field :id, :class=>"form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label "Fecha de compra", :class=>"form-label", style: "display: block" %>
+    <%= form.date_select :date_buy, :class=>"form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label "Precio de compra", :class=>"form-label", style: "display: block" %>
+    <%= form.text_field :pricebuy, :class=>"form-control" %>
+  </div>
+
+  <div>
+    <i class= "separar d-flex bi">
+      <span class="">
+        <%= button_tag(:type => 'submit', :title=>'Actualiza los datos', :class => 'bi bi-arrow-counterclockwise btn') do %>
+          <i class="icon-up-arrow icon-white"></i>
+        <% end %>
+          
+      </span>
+        <%= link_to "", invoices_path, :class=>"bi bi-skip-backward-btn-fill btn", :title=>'Retornar a grupos' %>
+    </i>
+  </div>
+<% end %>

@@ -1,0 +1,36 @@
+<p style="color: green"><%= notice %></p>
+
+<div class ="container">
+  <div class="row">
+      <div class="col-md-8">
+        <div class="tzona">
+            <h1>INFORMACIÓN DEL ACTIVO</h1>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div class ="container">
+<div class="card card-dark text-white" style="width:100%">
+  <div class="card-body">
+    <h2 class="card-title"></h2>
+    <div class="row">
+      <div class=" logo col-auto"><%= image_tag("record.png", :class => "", :width => "400px") %></div>
+        <div class="col">
+          <h4 class="card-title ">DATOS DEL ACTIVO</h4>
+              <div class="centrarcard"><%= render @active %></div>
+              <i>
+                <ul class="separar d-flex">
+                  <li><%= button_to "", @active, method: :delete, :title=>"Eliminar", :class=>"bi bi-trash btn" %></li>
+                  <li><%= link_to "", edit_active_path(@active), :title=>"Editar", :class=>" bi bi-pencil-fill btn" %></li>
+                  <li><%= link_to "", actives_path, :title=>"Regresar a zonas", :class=>" bi bi-skip-backward-fill btn" %></li>
+                </ul>
+              </i>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
+  
+</div>
+</div>

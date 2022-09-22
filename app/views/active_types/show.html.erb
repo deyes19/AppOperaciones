@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @active_type %>
+
+<div>
+  <%= link_to "Edit this active type", edit_active_type_path(@active_type) %> |
+  <%= link_to "Back to active types", active_types_path %>
+
+  <%= button_to "Destroy this active type", @active_type, method: :delete %>
+</div>
