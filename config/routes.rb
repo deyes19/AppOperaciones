@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "actives#index"
   resources :actives
   resources :active_types
   resources :suppliers
