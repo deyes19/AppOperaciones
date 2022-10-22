@@ -52,6 +52,9 @@ test:
 #
 production:
   <<: *default
-  database: AppOperaciones_production
-  username: AppOperaciones
-  password: <%= ENV["APPOPERACIONES_DATABASE_PASSWORD"] %>
+  encoding: utf8
+  database: <%= ENV['RDS_DB_NAME'] %>
+  username: <%= ENV['RDS_USER_NAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV['RDS_HOSTNAME'] %>
+  port: <%= ENV['RDS_PORT'] %>
