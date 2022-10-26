@@ -2,7 +2,11 @@
 lock "~> 3.17.1"
 
 set :application, "Appoperaciones"
+
 set :repo_url, "git@github.com:deyes19/Appoperaciones.git"
+
+set :scm, :git
+set :revision, `git rev-parse --short #{fetch("main")}`.strip
 
 set :deploy_to, "/home/web/#{fetch :application}"
 
@@ -10,6 +14,8 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bund
 
 # Only keep the last 5 releases to save disk space
 set :keep_releases, 5
+
+
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
