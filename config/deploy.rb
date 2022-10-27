@@ -5,8 +5,6 @@ set :application, "Appoperaciones"
 
 set :repo_url, "git@github.com:deyes19/Appoperaciones.git"
 
-set :revision, `git rev-parse --short #{fetch("main")}`.strip
-
 set :deploy_to, "/home/web/#{fetch :application}"
 
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
@@ -14,6 +12,7 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bund
 # Only keep the last 5 releases to save disk space
 set :keep_releases, 5
 
+set :branch,        :main
 
 
 # Default branch is :master

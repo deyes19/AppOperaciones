@@ -43,19 +43,4 @@ install_plugin Capistrano::SCM::Git
 # require "capistrano/passenger"
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
-Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
-namespace :deploy do
-    desc "checks whether the currently checkout out revision matches the
-          remote one we're trying to deploy from"
-    task :check_revision do
-      branch = fetch("main")
-      unless `git rev-parse HEAD` == `git rev-parse origin/#{"main"}`
-        puts "WARNING: HEAD is not the same as origin/#{"main"}"
-        puts "Run `git push` to sync changes or make sure you've"
-        puts "checked out the branch: #{"main"} as you can only deploy"
-        puts "if you've got the target branch checked out"
-        exit
-      end
-    end
-  end
   
