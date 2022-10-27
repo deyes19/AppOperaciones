@@ -5,7 +5,6 @@ set :application, "Appoperaciones"
 
 set :repo_url, "git@github.com:deyes19/Appoperaciones.git"
 
-set :scm, :git
 set :revision, `git rev-parse --short #{fetch("main")}`.strip
 
 set :deploy_to, "/home/web/#{fetch :application}"
