@@ -19,6 +19,10 @@
   <div class="mb-3">
     <%= form.label "Nombre del centro de costo", :class=>"form-label", style: "display: block" %>
     <%= form.text_field :name, :class=>"form-control" %>
+    <div class="form-group">
+      <label class="control-label col-sm-6">Seleccione una Zona: </label>
+      <%= form.select :zone_id, options_from_collection_for_select(Zone.all, :id, :description) %>
+    </div>
   </div>
 
   <div>

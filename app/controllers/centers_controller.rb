@@ -13,6 +13,7 @@ class CentersController < ApplicationController
   # GET /zones/new
   def new
     @center = Center.new
+
     
   end
 
@@ -24,7 +25,7 @@ class CentersController < ApplicationController
   # POST /zones or /zones.json
   def create
     @center = Center.new(center_params)
-
+    
     respond_to do |format|
       if @center.save
         format.html { redirect_to centers_path, notice: 'Tu producto se ha creado correctamente', status: :see_other }
@@ -64,6 +65,6 @@ class CentersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def center_params
-      params.require(:center).permit(:id, :name)
+      params.require(:center).permit(:id, :name, :zone_id)
     end
 end
