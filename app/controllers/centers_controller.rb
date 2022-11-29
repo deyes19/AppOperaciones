@@ -25,7 +25,7 @@ class CentersController < ApplicationController
   # POST /zones or /zones.json
   def create
     @center = Center.new(center_params)
-    
+    @center.zone = current_zone
     respond_to do |format|
       if @center.save
         format.html { redirect_to centers_path, notice: 'Tu producto se ha creado correctamente', status: :see_other }

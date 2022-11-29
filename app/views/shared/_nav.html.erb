@@ -16,27 +16,19 @@
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Maestros</a>
               <ul class="dropdown-menu">
 
-                <li>
-                  <a class="dropdown-item" href="">
-                    <%= link_to "Ir a zonas", zones_path %>
-                  </a>
+                <li> 
+                    <%= link_to "Ir a Zonas", zones_path, :class=>"dropdown-item text-dark "  %>
                 </li>
 
                 <li>
-                  <a class="dropdown-item" href="#">
-                    Centros de Costo
-                  </a>
+                  <%= link_to "Ir a Centros de Costo", centers_path, :class=>"dropdown-item text-dark "  %>
                 </li>
 
                 <li>
-                  <a class="dropdown-item" href="#">
-                    Destinos
-                  </a>
+                    <%= link_to "Ir a Destinos", destinations_path, :class=>"dropdown-item text-dark "  %>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
-                    Ubicación
-                  </a>
+                    <%= link_to "Ir a Ubicaciones", zones_path, :class=>"dropdown-item text-dark "  %>
                 </li>
               </ul>
             </li>
