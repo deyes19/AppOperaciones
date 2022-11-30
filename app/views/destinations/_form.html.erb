@@ -20,7 +20,12 @@
   <%= form.label "Nombre del destino", :class=>"form-label", style: "display: block" %>
   <%= form.text_field :description, :class=>"form-control" %>
 </div>
-
+  <div class="mb-3">
+    <div class="form-group">
+      <label class="control-label col-sm-6">Seleccione un centro de costo: </label>
+      <%= form.select :center_id, options_from_collection_for_select(Center.all, :id, :description) %>
+    </div>
+  </div>
 <div>
   <i class= "separar d-flex bi">
     <span class="">
