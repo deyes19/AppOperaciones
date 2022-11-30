@@ -1,7 +1,7 @@
 <%= form_with(model: destination) do |form| %>
   <% if destination.errors.any? %>
   <div style="color: red">
-    <h2><%= pluralize(cdestination.errors.count, "error") %> prohibited this center from being saved:</h2>
+    <h2><%= pluralize(destination.errors.count, "error") %> prohibited this center from being saved:</h2>
 
     <ul>
       <% destination.errors.each do |error| %>
@@ -23,7 +23,7 @@
   <div class="mb-3">
     <div class="form-group">
       <label class="control-label col-sm-6">Seleccione un centro de costo: </label>
-      <%= form.select :center_id, options_from_collection_for_select(Center.all, :id, :description) %>
+      <%= form.select :center_id, options_from_collection_for_select(Center.all, :id, :name) %>
     </div>
   </div>
 <div>

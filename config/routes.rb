@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :ubications
   root "actives#index"
   resources :actives
   resources :active_types

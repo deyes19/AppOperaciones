@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_29_164052) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_30_150348) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,7 +27,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_164052) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "destination_id", null: false
+    t.bigint "ubication_id", null: false
     t.index ["destination_id"], name: "index_actives_on_destination_id"
+    t.index ["ubication_id"], name: "index_actives_on_ubication_id"
   end
 
   create_table "brands", force: :cascade do |t|
@@ -84,6 +86,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_164052) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "ubications", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "zones", force: :cascade do |t|
     t.string "description"
     t.datetime "created_at", null: false
@@ -91,6 +99,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_164052) do
   end
 
   add_foreign_key "actives", "destinations"
+  add_foreign_key "actives", "ubications"
   add_foreign_key "centers", "zones"
   add_foreign_key "destinations", "centers"
 end

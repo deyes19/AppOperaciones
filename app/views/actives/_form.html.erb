@@ -23,6 +23,12 @@
               <%= form.label "Código de barras del activo", :class=>"form-label", style: "display: block" %>
               <%= form.text_field :barcode, :class=>"form-control" %>
           </div>
+          <div class="mb-3">
+          <div class="form-group">
+            <label class="control-label col-sm-6">Seleccione una ubicación: </label>
+            <%= form.select :ubication_id, options_from_collection_for_select(Ubication.all, :id, :name) %>
+          </div>
+        </div>
         </div>
       
         <div class="col">
@@ -34,13 +40,12 @@
             <%= form.label "Serial del activo", :class=>"form-label", style: "display: block" %>
             <%= form.text_field :serial, :class=>"form-control" %>
           </div>  
-          <div class="mb-3">
+        <div class="mb-3">
           <div class="form-group">
-            <label class="control-label col-sm-6">Seleccione un centro de costo: </label>
+            <label class="control-label col-sm-6">Seleccione un Destino: </label>
             <%= form.select :destination_id, options_from_collection_for_select(Destination.all, :id, :description) %>
           </div>
         </div>
-        <div>
       </div>
       </div>
     </div>
