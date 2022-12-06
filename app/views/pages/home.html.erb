@@ -5,14 +5,14 @@
 <% else %>
 <div class="col-lg-6 mx-lg-auto">
   <div class="card shadow">
-    <div class="card-header">
-      <h2 class="card-title text-center">Acceso no autorizado</h2>
+    <div class="card-header bg-rednav">
+      <h2 class="card-title text-center text-white">Acceso no autorizado</h2>
     </div>
-        <div class="card-body ">
+        <div class="card-body text-center ">
             <p>Aún no te encuentras registrado en el sistema o no has iniciado sesión</p>
             <p>presiona el boton para registrarte o iniciar sesión</p>
-            <%= link_to 'Iniciar Sesión', new_user_session_path, class: "btn btn-primary "%>
-            <%= link_to 'Registrarse', new_user_registration_path, class: "btn btn-primary", data: {turbo: false} %>
+            <%= link_to 'Iniciar Sesión', new_user_session_path, class: "btn bg-rednav "%>
+            <%= link_to 'Registrarse', new_user_registration_path, class: "btn bg-rednav", data: {turbo: false} %>
         </div>
     </div>
 </div>
