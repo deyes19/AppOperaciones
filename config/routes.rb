@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
+  root 'pages#home'
   resources :ubications
-  root "actives#index"
   resources :actives
   resources :active_types
   resources :suppliers
