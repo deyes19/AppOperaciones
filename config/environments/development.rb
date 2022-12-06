@@ -64,6 +64,16 @@ Rails.application.configure do
   #Enviar confirmacion para iniciar sesion.
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      :user_name => '10ded4ede3ee7a',
+      :password => '2bc8fd68346aac',
+      :address => 'smtp.mailtrap.io',
+      :domain => 'smtp.mailtrap.io',
+      :port => '2525',
+      :authentication => :cram_md5
+    }
+
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
 
