@@ -4,6 +4,9 @@ class CentersController < ApplicationController
   # GET /zones or /zones.json
   def index
     @centers = Center.all
+    if params[:query_text].present?
+      @centers = @centers.search_full_text(params[:query_text])
+    end
   end
 
   # GET /zones/1 or /zones/1.json

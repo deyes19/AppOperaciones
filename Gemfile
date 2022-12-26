@@ -85,3 +85,5 @@ end
 gem "devise", "~> 4.8"
 
 gem "cancancan", "~> 3.4"
+#PostgreSQL Search support
+gem "pg_search", "~> 2.3"

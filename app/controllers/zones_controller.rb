@@ -4,6 +4,9 @@ class ZonesController < ApplicationController
   # GET /zones or /zones.json
   def index
     @zones = Zone.all
+    if params[:query_text].present?
+      @zones = @zones.search_full_text(params[:query_text])
+    end
   end
 
   # GET /zones/1 or /zones/1.json

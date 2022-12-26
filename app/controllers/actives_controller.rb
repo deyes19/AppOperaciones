@@ -4,6 +4,9 @@ class ActivesController < ApplicationController
   # GET /actives or /actives.json
   def index
     @actives = Active.all
+    if params[:query_text].present?
+      @actives = @actives.search_full_text(params[:query_text])
+    end
   end
 
   # GET /actives/1 or /actives/1.json

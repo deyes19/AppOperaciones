@@ -4,6 +4,9 @@ class UbicationsController < ApplicationController
   # GET /ubications or /ubications.json
   def index
     @ubications = Ubication.all
+    if params[:query_text].present?
+      @ubications = @ubications.search_full_text(params[:query_text])
+    end
   end
 
   # GET /ubications/1 or /ubications/1.json

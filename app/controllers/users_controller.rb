@@ -4,6 +4,9 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @users = User.all
+    if params[:query_text].present?
+      @users = @users.search_full_text(params[:query_text])
+    end
   end
 
   # GET /users/1 or /users/1.json
