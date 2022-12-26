@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_30_150348) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_26_145912) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,8 +28,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_150348) do
     t.datetime "updated_at", null: false
     t.bigint "destination_id", null: false
     t.bigint "ubication_id", null: false
+    t.bigint "user_id", null: false
     t.index ["destination_id"], name: "index_actives_on_destination_id"
     t.index ["ubication_id"], name: "index_actives_on_ubication_id"
+    t.index ["user_id"], name: "index_actives_on_user_id"
   end
 
   create_table "brands", force: :cascade do |t|
@@ -79,6 +81,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_150348) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "suppliers", force: :cascade do |t|
     t.integer "nit"
     t.string "description"
@@ -92,6 +101,26 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_150348) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "role_id", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["role_id"], name: "index_users_on_role_id"
+  end
+
   create_table "zones", force: :cascade do |t|
     t.string "description"
     t.datetime "created_at", null: false
@@ -100,6 +129,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_150348) do
 
   add_foreign_key "actives", "destinations"
   add_foreign_key "actives", "ubications"
+  add_foreign_key "actives", "users"
   add_foreign_key "centers", "zones"
   add_foreign_key "destinations", "centers"
+  add_foreign_key "users", "roles"
 end
