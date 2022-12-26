@@ -1,5 +1,5 @@
 class ZonesController < ApplicationController
-  before_action :set_zone, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
 
   # GET /zones or /zones.json
   def index

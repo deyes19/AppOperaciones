@@ -1,14 +1,60 @@
 
+<div class ="container">
+<nav class="navbar navsep navbar-expand-sm navbar-rednav bg-rednav rounded">
+    <div class="container-fluid">
+      <div class="navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+          <i>
+            <%= link_to " Nuevo Rol", new_role_path, :class=>"nav-item nav-link bi bi-plus-square-dotted" %>
+          </i>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="text" placeholder="Usuario">
+          <button class="btn btn-secondary" type="button">Buscar</button>
+        </form>
+      </div>
+    </div>
+  </nav>
 
-<h1>Roles</h1>
+<div class="row">
+      <div class="col-md-8">
+        <div class="tzona">
+            <h1>ROLES</h1>
+        </div>
+<table class="table table-dark table-hover">
+                  <tr class="text-dark">
+                    <th>Rol</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                  </tr>
+                      <div id="roles">
+                        <% @roles.each do |role| %>
+                          <tr>
+                            <td>
+                              <%= role.name%>
+                            </td>
+                            <td>
+                              <%= role.description %>
+                            </td>
+                            <td>
+                              <i class="separar">
+                              <% if can? :destroy, Role %>
+                                <%= link_to "", role, :class=>"bi bi-eye-fill btn" %>
+                                <%= button_to "", role, method: :delete, :class=>"bi bi-trash btn", :data=>{turbo_confirm:'Estás seguro?'}%>
+                                <% end %>
+                                <% if can? :edit, Role %>
+                                <%= link_to "", edit_role_path(role), :title=>"Editar", :class=>" bi bi-pencil-fill btn" %>
+                                <% end %>
+                              </i>
+                            </td> 
+                          </tr>
+                        <% end %>
+                      </div>
+            </table>
 
-<div id="roles">
-  <% @roles.each do |role| %>
-    <%= render role %>
-    <p>
-      <%= link_to "Show this role", role %>
-    </p>
-  <% end %>
 </div>
-
-<%= link_to "New role", new_role_path %>
+        </div>
+  </div>
+</div> 

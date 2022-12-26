@@ -1,5 +1,5 @@
 class UbicationsController < ApplicationController
-  before_action :set_ubication, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
 
   # GET /ubications or /ubications.json
   def index

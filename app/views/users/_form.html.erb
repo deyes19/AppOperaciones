@@ -10,28 +10,42 @@
       </ul>
     </div>
   <% end %>
+  <div class="mb-3">
+    <div class="form-group">
+      <%= form.label "Correo electrónico", style: "display: block" %>
+      <%= form.text_field :email %>
+    </div>
+  </div>
+  <div class="mb-3">
+    <div class="form-group">
+      <%= form.label "Nombre", style: "display: block" %>
+      <%= form.text_field :name %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= form.label :email %><br>
-    <%= form.text_field :email %>
+  <div class="mb-3">
+    <div class="form-group">
+      <%= form.label "Rol Seleccionado", style: "display: block" %>
+    <%= collection_select( :user, :role_id, Role.all, :id, :name, { prompt: true }) %>
+    </div>
   </div>
   
-  <div class="field">
+  <div class="mb-3">
+    <div class="form-group">
     <%= form.label :password %><br>
-    <%= form.password_field :password, placeholder: "Leave blank if unchanged" %>
+    <%= form.password_field :password, placeholder: "Mínimo 6 caracteres" %>
+    </div>
   </div>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :role_id, style: "display: block" %>
-    <%= collection_select( :user, :role_id, Role.all, :id, :name, { prompt: true }) %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <i class= "separar d-flex bi">
+      <span class="">
+        <%= button_tag(:type => 'submit', :title=>'Actualiza los datos', :class => 'bi bi-arrow-counterclockwise btn') do %>
+          <i class="icon-up-arrow icon-white"></i>
+        <% end %>
+          
+      </span>
+      <%= link_to "", users_path, :class=>"bi bi-skip-backward-btn-fill btn", :title=>'Retornar a los usuarios' %>
+    </i>
   </div>
 <% end %>
+
+

@@ -1,5 +1,5 @@
 class ActivesController < ApplicationController
-  before_action :set_active, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
 
   # GET /actives or /actives.json
   def index
@@ -12,7 +12,6 @@ class ActivesController < ApplicationController
 
   # GET /actives/new
   def new
-    @active = Active.new
   end
 
   # GET /actives/1/edit
@@ -60,9 +59,6 @@ class ActivesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_active
-      @active = Active.find(params[:id])
-    end
 
     # Only allow a list of trusted parameters through.
     def active_params

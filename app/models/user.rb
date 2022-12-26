@@ -11,4 +11,11 @@ class User < ApplicationRecord
   def assign_role
     self.role = Role.find_by name: 'Regular' if role.nil?
   end
+  def admin?
+    role.name == 'Admin'
+  end
+  def regular?
+    role.name == 'Regular'
+  end
+  
 end

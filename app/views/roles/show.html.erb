@@ -1,5 +1,42 @@
 
-<p>
-  <strong>Assosciated users:</strong>
-  <%= @assosciated_users %>
-</p>
+
+<p style="color: green"><%= notice %></p>
+
+<div class ="container">
+  <div class="row">
+      <div class="col-md-8">
+        <div class="tzona">
+            <h1>INFORMACIÓN DEL ROL</h1>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div class ="container">
+<div class="card card-dark text-white" style="width:100%">
+  <div class="card-body">
+    <h2 class="card-title"></h2>
+    <div class="row">
+          <h4 class="card-title ">DATOS DEL ROL</h4>
+              <div class="centrarcard"><%= render @role %>
+              <p>
+                <strong>Assosciated users:</strong>
+                <%= @assosciated_users %>
+                
+              </p>
+              </div>
+              <i>
+                <ul class="separar d-flex">
+                  <li><%= button_to "", @role, method: :delete, :title=>"Eliminar", :class=>"bi bi-trash btn" %></li>
+                  <li><%= link_to "", edit_role_path(@role), :title=>"Editar", :class=>" bi bi-pencil-fill btn" %></li>
+                  <li><%= link_to "", roles_path, :title=>"Regresar a zonas", :class=>" bi bi-skip-backward-fill btn" %></li>
+                </ul>
+              </i>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
+  
+</div>
+</div>

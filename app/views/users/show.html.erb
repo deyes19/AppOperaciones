@@ -1,15 +1,42 @@
 
-<p>
-  <strong>Joined on:</strong>
-  <%= @joined_on %>
-</p>
 
-<p>
-  <strong>Last logged in on:</strong>
-  <%= @last_login %>
-</p>
+<%= link_to "", users_path, :title=>"Regresar a lista de usuarios", :class=>" bi bi-skip-backward-fill btn" %>
 
-<p>
-  <strong>No. times logged in:</strong>
-  <%= @user.sign_in_count %>
-</p>
+<p style="color: green"><%= notice %></p>
+
+<div class ="container">
+  <div class="row">
+      <div class="col-md-8">
+        <div class="tzona">
+            <h1>INFORMACIÓN DE LOS USUARIOS</h1>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div class ="container">
+<div class="card card-dark text-dark" style="width:100%">
+  <div class="card-body">
+          <h4 class="card-title "></h4>
+              <div class="centrarcard"><%= render @user %>
+                <p>
+                  <strong>Registrado desde:</strong>
+                  <%= @joined_on %>
+                </p>
+
+              </div>
+              <i>
+                <ul class="separar d-flex">
+                  <li><%= button_to "", @user, method: :delete, :title=>"Eliminar", :class=>"bi bi-trash btn" %></li>
+                  <li><%= link_to "", edit_user_path(@user), :title=>"Editar", :class=>" bi bi-pencil-fill btn" %></li>
+                  <li><%= link_to "", users_path, :title=>"Regresar a lista de usuarios", :class=>" bi bi-skip-backward-fill btn" %></li>
+                </ul>
+              </i>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
+  
+</div>
+</div>
