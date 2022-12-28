@@ -3,7 +3,7 @@ class CentersController < ApplicationController
 
   def import
     file = params[:file]
-    return redirect_to centers_path, notice: 'Solo se admite formato por separación de comas (.CSV)', unless file.content_type == 'text/csv'
+    return redirect_to centers_path, notice: 'Solo se admite formato por separación de comas (.CSV)' unless file.content_type == 'text/csv'
 
     CsvImportCentersService.new.call(file)
 
