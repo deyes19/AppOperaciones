@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
   rescue_from CanCan::AccessDenied do
-    flash[:error] = 'Access denied!'
+    flash[:notice] = 'No tienes permiso para acceder a esta sección'
     redirect_to root_url
   end
 end

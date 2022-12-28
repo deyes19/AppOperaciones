@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   end
   resources :roles
   resources :users
-  resources :ubications
+  resources :ubications do
+    collection do
+      post :import
+    end
+  end
   root "actives#index"
   resources :actives
   resources :active_types
@@ -17,8 +21,16 @@ Rails.application.routes.draw do
   resources :groups
   resources :destinations
   resources :destinos
-  resources :centers
-  resources :zones
+  resources :centers do
+    collection do
+      post :import
+    end
+  end
+  resources :zones do
+  collection do
+    post :import
+  end
+end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

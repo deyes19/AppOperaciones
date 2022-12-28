@@ -1,6 +1,16 @@
 class CentersController < ApplicationController
   load_and_authorize_resource
 
+  def import
+    file = params[:file]
+    return redirect_to centers_path, notice: 'Solo se admite formato por separación de comas (.CSV)', unless file.content_type == 'text/csv'
+
+    CsvImportCentersService.new.call(file)
+
+    redirect_to centers_path, notice: 'CENTROS DE COSTO IMPORTADOS EXITOSAMENTE'
+  end
+
+
   # GET /zones or /zones.json
   def index
     @centers = Center.all

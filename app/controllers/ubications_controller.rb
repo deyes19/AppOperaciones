@@ -1,6 +1,15 @@
 class UbicationsController < ApplicationController
   load_and_authorize_resource
 
+  def import
+    file = params[:file]
+    return redirect_to ubications_path, notice: 'Solo se admite formato por separación de comas (.CSV)' unless file.content_type == 'text/csv'
+
+    CsvImportUbicationsService.new.call(file)
+
+    redirect_to ubications_path, notice: 'CENTROS DE COSTO IMPORTADOS EXITOSAMENTE'
+  end
+
   # GET /ubications or /ubications.json
   def index
     @ubications = Ubication.all

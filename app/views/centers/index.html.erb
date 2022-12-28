@@ -22,13 +22,14 @@
         </ul>
         <form class="d-flex">
             <%= form_with url: centers_path, method: :get do |form| %>
-            <%= form.text_field :query_text, placeholder: "Busca el centro de costo", onChange: 'this.form.requestSubmit()', value: params[:query_text] %>
-            <button class="btn btn-secondary" type="button">Buscar</button>
-          <% end %>
+              <%= form.text_field :query_text, placeholder: "Busca el centro de costo", onChange: 'this.form.requestSubmit()', value: params[:query_text] %>
+              <button class="btn btn-secondary" type="button">Buscar</button>
+            <% end %>
         </form>
       </div>
     </div>
   </nav>
+           
 
   
   <div class="row">
@@ -65,6 +66,7 @@
                         <% end %>
                       </div>
             </table> 
+            
       </div>
   </div>
 </div>

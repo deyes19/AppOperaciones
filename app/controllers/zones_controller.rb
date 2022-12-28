@@ -1,6 +1,15 @@
 class ZonesController < ApplicationController
   load_and_authorize_resource
 
+  def import
+    file = params[:file]
+    return redirect_to zones_path, notice: 'Sólo se admite formato de separación de comas (.CSV)' unless file.content_type == 'text/csv'
+
+    CsvImportZonesService.new.call(file)
+
+    redirect_to zones_path, notice: 'ZONAS IMPORTADAS EXITOSAMENTE'
+  end
+
   # GET /zones or /zones.json
   def index
     @zones = Zone.all
