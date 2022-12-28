@@ -259,11 +259,7 @@ DEPENDENCIES
   capybara
   cssbundling-rails
   debug
-<<<<<<< HEAD
-  devise
-=======
   devise (~> 4.8)
->>>>>>> commit-huerfano
   importmap-rails
   jbuilder
   jsbundling-rails

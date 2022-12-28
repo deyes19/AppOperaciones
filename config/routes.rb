@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-<<<<<<< HEAD
-  root 'pages#home'
-  resources :ubications
-=======
   scope '/admin' do
     resources :users
   end
@@ -15,7 +11,6 @@ Rails.application.routes.draw do
     end
   end
   root "actives#index"
->>>>>>> commit-huerfano
   resources :actives
   resources :active_types
   resources :suppliers

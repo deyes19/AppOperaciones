@@ -14,11 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-<<<<<<< HEAD
-  # config.secret_key = 'd0446cfd512b46029517485fb86b4fd14f3177125d75772f6d47fdc3efc5b2e4fab3d519170c80d0de7fe10b501b68b99464fdba53bb53ad439db894f7d3f454'
-=======
   # config.secret_key = 'd3f7d55ed4a0ab457a7c86899311c5d26d1c564ee5f8ca51760f443adc71412ba4feaf7c2ee4b056cbde41179194fc7ba5b89b24da6d0eed5dcaff4651c617cb'
->>>>>>> commit-huerfano
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -130,11 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-<<<<<<< HEAD
-  # config.pepper = 'fc320d5293f5cd6164fac874c44921c47f18a07119f11c91664754d92994daa7c87396d4e0bb3ecec1655c12e85ac6a476c75a6738742d17b8f91d09de2cc088'
-=======
   # config.pepper = '2937429af326f226b11844392052ce22845d1e179edcf7ccf577b6d2ab0623480d935f881b54c18a7db526851bac3949b4708ccb923ab200fbe938c53f213e40'
->>>>>>> commit-huerfano
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
