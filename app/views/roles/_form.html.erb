@@ -1,0 +1,39 @@
+<%= form_with(model: role) do |form| %>
+  <% if role.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(role.errors.count, "error") %> prohibited this role from being saved:</h2>
+
+      <ul>
+        <% role.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="mb-3">
+  <div class="form-group">
+    <%= form.label "Nombre", style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+</div>
+
+  <div class="mb-3">
+  <div class="form-group">
+    <%= form.label "¿que hace?", style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+  </div>
+
+  <div>
+    <i class= "separar d-flex bi">
+      <span class="">
+        <%= button_tag(:type => 'submit', :title=>'Actualiza los datos', :class => 'bi bi-arrow-counterclockwise btn') do %>
+          <i class="icon-up-arrow icon-white"></i>
+        <% end %>
+          
+      </span>
+        <%= link_to "", roles_path, :class=>"bi bi-skip-backward-btn-fill btn", :title=>'Retornar a los roles' %>
+    </i>
+  </div>
+<% end %>

@@ -18,8 +18,11 @@
           </li>
         </ul>
         <form class="d-flex">
-          <input class="form-control me-2" type="text" placeholder="zona">
-          <button class="btn btn-secondary" type="button">Buscar</button>
+            
+            <%= form_with url: zones_path, method: :get do |form| %>
+              <%= form.text_field :query_text, placeholder: "Busca la zona acá", onChange: 'this.form.requestSubmit()', value: params[:query_text] %>
+              <button class="btn btn-secondary" type="button">Buscar</button>
+            <% end %>
         </form>
       </div>
     </div>

@@ -1,9 +1,22 @@
 class CentersController < ApplicationController
-  before_action :set_center, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
+
+  def import
+    file = params[:file]
+    return redirect_to centers_path, notice: 'Solo se admite formato por separación de comas (.CSV)', unless file.content_type == 'text/csv'
+
+    CsvImportCentersService.new.call(file)
+
+    redirect_to centers_path, notice: 'CENTROS DE COSTO IMPORTADOS EXITOSAMENTE'
+  end
+
 
   # GET /zones or /zones.json
   def index
     @centers = Center.all
+    if params[:query_text].present?
+      @centers = @centers.search_full_text(params[:query_text])
+    end
   end
 
   # GET /zones/1 or /zones/1.json

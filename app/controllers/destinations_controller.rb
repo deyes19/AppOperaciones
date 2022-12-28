@@ -1,10 +1,13 @@
 class DestinationsController < ApplicationController
- before_action :set_destination, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
 
 
   # GET /zones or /zones.json
   def index
     @destinations = Destination.all
+    if params[:query_text].present?
+      @destinations = @destinations.search_full_text(params[:query_text])
+    end
   end
 
   # GET /zones/1 or /zones/1.json

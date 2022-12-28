@@ -1,9 +1,21 @@
 class ZonesController < ApplicationController
-  before_action :set_zone, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
+
+  def import
+    file = params[:file]
+    return redirect_to zones_path, notice: 'Sólo se admite formato de separación de comas (.CSV)' unless file.content_type == 'text/csv'
+
+    CsvImportZonesService.new.call(file)
+
+    redirect_to zones_path, notice: 'ZONAS IMPORTADAS EXITOSAMENTE'
+  end
 
   # GET /zones or /zones.json
   def index
     @zones = Zone.all
+    if params[:query_text].present?
+      @zones = @zones.search_full_text(params[:query_text])
+    end
   end
 
   # GET /zones/1 or /zones/1.json

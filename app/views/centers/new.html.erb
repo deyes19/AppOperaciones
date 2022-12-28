@@ -15,11 +15,18 @@
         <div class="logo col-auto"><%= image_tag("record.png", :class => "", :width => "200px") %></div>
           <div class="col text-dark">
             <h4 class="card-title">DATOS DEL CENTRO DE COSTO</h4>
-                <div class="centrarcard"><%= render "form", center: @center %></div>
+                <div class="centrarcard"><%= render "form", center: @center %>
+                
+                </div>
             </div>
           </div>
         </div>
       </div>  
     </div>
+    <%= form_with url: import_centers_path, method: :post do |form| %>
+              <%= form.file_field :file, accept: ".csv" %>
+              <%= form.button "Importar" %>
+    <% end %>
   </div>
+   
 </div>

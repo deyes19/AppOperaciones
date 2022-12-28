@@ -16,13 +16,17 @@
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
           <i>
+          <% if can? :create, Active %>
             <%= link_to " Nueva activo", new_active_path, :class=>"nav-item nav-link bi bi-plus-square-dotted" %>
+          <% end %>
           </i>
           </li>
         </ul>
         <form class="d-flex">
-          <input class="form-control me-2" type="text" placeholder="Active">
-          <button class="btn btn-secondary" type="button">Buscar</button>
+          <%= form_with url: actives_path, method: :get do |form| %>
+            <%= form.text_field :query_text, placeholder: "Busca tu activo acá", onChange: 'this.form.requestSubmit()', value: params[:query_text] %>
+            <button class="btn btn-secondary" type="button">Buscar</button>
+          <% end %>
         </form>
       </div>
     </div>
@@ -51,9 +55,14 @@
                             </td>
                             <td>
                               <i class="separar">
+                              
                                 <%= link_to "", active, :class=>"bi bi-eye-fill btn" %>
+                                <% if can? :destroy, Active %>
                                 <%= button_to "", active, method: :delete, :class=>"bi bi-trash btn", :data=>{turbo_confirm:'Estás seguro?'}%>
+                                <% end %>
+                                <% if can? :edit, Active %>
                                 <%= link_to "", edit_active_path(active), :title=>"Editar", :class=>" bi bi-pencil-fill btn" %>
+                                <% end %>
                               </i>
                             </td> 
                           </tr>

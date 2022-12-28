@@ -1,9 +1,12 @@
 class ActivesController < ApplicationController
-  before_action :set_active, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
 
   # GET /actives or /actives.json
   def index
     @actives = Active.all
+    if params[:query_text].present?
+      @actives = @actives.search_full_text(params[:query_text])
+    end
   end
 
   # GET /actives/1 or /actives/1.json
@@ -12,7 +15,6 @@ class ActivesController < ApplicationController
 
   # GET /actives/new
   def new
-    @active = Active.new
   end
 
   # GET /actives/1/edit
@@ -22,6 +24,7 @@ class ActivesController < ApplicationController
   # POST /actives or /actives.json
   def create
     @active = Active.new(active_params)
+    @active.user_id = current_user.id
 
     respond_to do |format|
       if @active.save
@@ -59,9 +62,6 @@ class ActivesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_active
-      @active = Active.find(params[:id])
-    end
 
     # Only allow a list of trusted parameters through.
     def active_params
