@@ -59,13 +59,6 @@
               <% end %>
               </a>
               <ul class="dropdown-menu">
-<<<<<<< HEAD
-              <% if user_signed_in? %>
-              <li><%= button_to("Cerrar sesión", destroy_user_session_path, class:"dropdown-item", method: :delete) %></li>
-              <% else %>
-              <li><%= link_to 'Iniciar Sesión', new_user_session_path, class: "dropdown-item"%></li>
-              <% end %>
-=======
                 <% if user_signed_in? %>
                   
                   <%= link_to "Editar perfil", edit_user_registration_path, :class=>"dropdown-item text-dark " %>
@@ -74,7 +67,6 @@
                   <%= link_to "Iniciar sesion", new_user_session_path, :class=>"dropdown-item text-dark" %>
                 <% end %>
 
->>>>>>> commit-huerfano
               </ul>
             </li>
           </ul>
