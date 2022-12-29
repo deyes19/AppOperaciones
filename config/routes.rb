@@ -19,8 +19,12 @@ Rails.application.routes.draw do
   resources :responsibles
   resources :invoices
   resources :groups
-  resources :destinations
-  resources :destinos
+  resources :destinations do
+    collection do
+      post :import
+    end
+  end
+  resources :destinos 
   resources :centers do
     collection do
       post :import

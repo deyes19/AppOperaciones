@@ -13,28 +13,30 @@
 <!--Se agrega campo para asignarle manualmente el ID a cada registro-->
 <div class="container mt-3">
 <div class="mb-3 mt-3">
-  <%= form.label "Identificador de destino", :class=>"form-label", style: "display: block" %>
-  <%= form.text_field :id, :class=>"form-control" %>
+  <%= form.label "Identificador de destino", :class=>"form-label fw-bolder", style: "display: block" %>
+  <%= form.text_field :id, :class=>"border border-info rounded-2" %>
 </div>
 <div class="mb-3">
-  <%= form.label "Nombre del destino", :class=>"form-label", style: "display: block" %>
-  <%= form.text_field :description, :class=>"form-control" %>
+  <%= form.label "Nombre del destino", :class=>"form-label fw-bolder", style: "display: block" %>
+  <%= form.text_field :description, :class=>"border border-info rounded-2" %>
 </div>
   <div class="mb-3">
-    <div class="form-group">
-      <label class="control-label col-sm-6">Seleccione un centro de costo: </label>
-      <%= form.select :center_id, options_from_collection_for_select(Center.all, :id, :name) %>
+  <div class="form-group ">
+      <label class="form-label fw-bolder">Seleccione un centro de costo: </label>
+      <div class= "input-group mb-3 justify-content-center">
+        <%= form.select :center_id, options_from_collection_for_select(Center.all, :id, :name) %>
+      </div>
     </div>
   </div>
 <div>
   <i class= "separar d-flex bi">
     <span class="">
-      <%= button_tag(:type => 'submit', :title=>'Actualiza los datos', :class => 'bi bi-arrow-counterclockwise btn') do %>
+      <%= button_tag(:type => 'submit', :title=>'Actualiza los datos', :class => 'bi bi-arrow-counterclockwise text-dark btn') do %>
         <i class="icon-up-arrow icon-white"></i>
       <% end %>
         
     </span>
-      <%= link_to "", destinations_path, :class=>"bi bi-skip-backward-btn-fill btn", :title=>'Retornar a las zonas' %>
+      <%= link_to "", destinations_path, :class=>"bi bi-skip-backward-btn-fill text-dark btn", :title=>'Retornar a las zonas' %>
   </i>
 </div>
 <% end %>

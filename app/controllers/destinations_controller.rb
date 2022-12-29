@@ -1,7 +1,14 @@
 class DestinationsController < ApplicationController
   load_and_authorize_resource
 
+  def import
+    file = params[:file]
+    return redirect_to destinations_path, notice: 'Sólo se admite formato de separación de comas (.CSV)' unless file.content_type == 'text/csv'
 
+    CsvImportDestinationsService.new.call(file)
+
+    redirect_to destinations_path, notice: 'ZONAS IMPORTADAS EXITOSAMENTE'
+  end
   # GET /zones or /zones.json
   def index
     @destinations = Destination.all
@@ -30,7 +37,7 @@ class DestinationsController < ApplicationController
 
     respond_to do |format|
       if @destination.save
-        format.html { redirect_to destinations_path, notice: 'Tu producto se ha creado correctamente', status: :see_other }
+        format.html { redirect_to destinations_path, notice: 'Tu destino se ha creado correctamente', status: :see_other }
         format.json { render :show, status: :created, location: @destination }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -43,7 +50,7 @@ class DestinationsController < ApplicationController
   def update
     respond_to do |format|
       if @destination.update(destination_params)
-        format.html { redirect_to destinations_path, notice: 'Tu producto se ha actualizado correctamente', status: :see_other }
+        format.html { redirect_to destinations_path, notice: 'Tu destino se ha actualizado correctamente', status: :see_other }
         format.json { render :show, status: :ok, location: @destination }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -56,7 +63,7 @@ class DestinationsController < ApplicationController
   def destroy
     destination = Destination.find(params[:id])
     destination.destroy
-    redirect_to destinations_path, notice: 'Tu producto se ha eliminado correctamente', status: :see_other
+    redirect_to destinations_path, notice: 'Tu destino se ha eliminado correctamente', status: :see_other
   end
   
   private
