@@ -102,7 +102,7 @@ body {
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  background-image: url("fondo.jpg");
+  background-image: url(/assets/fondo-bb9c8bf9b34eb1050bcfbcba6d755c0a832d602336af89e504e68ffd6cd175aa.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -8208,12 +8208,8 @@ textarea.form-control-lg {
 }
 
 .bg-card-personal {
-  background: rgb(34,193,195);
-background: linear-gradient(0deg, rgba(34,193,195,0.3) 0%, rgba(45,115,253,0.1) 100%);
-}
-.tam-card-personal{
-  height: 60%;
-  width: 50%;
+  background: rgb(51,212,235);
+  background: linear-gradient(239deg, rgba(51,212,235,0.5856092436974789) 25%, rgba(44,109,238,0.6276260504201681) 56%);
 }
 .bg-black {
   --bs-bg-opacity: 1;
@@ -10872,7 +10868,7 @@ background: linear-gradient(0deg, rgba(34,193,195,0.3) 0%, rgba(45,115,253,0.1) 
 @font-face {
   font-display: block;
   font-family: "bootstrap-icons";
-  src: url("./fonts/bootstrap-icons.woff2?8d200481aa7f02a2d63a331fc782cfaf") format("woff2"), url("./fonts/bootstrap-icons.woff?8d200481aa7f02a2d63a331fc782cfaf") format("woff");
+  src: url(/assets/fonts/bootstrap-icons-80a85af21a77b44049843c9ab389aa7d3ae2fb8664762a3083d929f1ed4ba431.woff2?8d200481aa7f02a2d63a331fc782cfaf) format("woff2"), url(/assets/fonts/bootstrap-icons-1a48645c01de5de4652b07741d3ecd7e0949ca18b8558c2beb4784750a9fb774.woff?8d200481aa7f02a2d63a331fc782cfaf) format("woff");
 }
 .bi::before,
 [class^=bi-]::before,

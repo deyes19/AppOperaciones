@@ -1,31 +1,26 @@
-
-<div class="container">
+<div class ="container tam-card-personal">
   <div class="row">
-      <div class="col-md-8">
-        <div class="tzona">
-            <h1>EDICIÓN DE ZONAS</h1>
-        </div>
-      </div>
-  </div>
-</div>
-
-<div class ="container">
-  <div class="card card-dark text-white" style="width:100%">
-    <div class="card-body">
+      <div class="col md-8">
+  <div class="bg-card-personal card  text-white">
+    <div class="card-body ">
       <h2 class="card-title"></h2>
       <div class="row">
-        <div class="logo col-auto"><%= image_tag("record.png", :width => "200px") %></div>
-          <div class="col">
-            <h4 class="  card-title">DATOS DE LA ZONA</h4>
-                <div class="centrarcard"><%= render "form", zone: @zone %></div><br>
+        <%
+=begin%>
+ <div class="logo col-auto"><%= image_tag("record.png", :class => "", :width => "200px") %></div> 
+<%
+=end%>
+          <div class="col text-dark">
+            <h3 class="card-title "> EDICION DE ZONAS</h3>
+            <p class="text-center">A continuación digita los datos de la zona que deseas editar.</p>
+                <div class="centrarcard"><%= render "form", zone: @zone %></div>
             </div>
           </div>
         </div>
       </div>  
     </div>
   </div>
-</div>
-<br>
-<div>
 
+      </div>
+  </div>
 </div>
