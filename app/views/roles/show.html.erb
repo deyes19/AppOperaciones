@@ -1,6 +1,10 @@
 
 
-<p style="color: green"><%= notice %></p>
+<% if flash[:notice] %>
+    <div class="alert alert-success" role="alert" id="notice" class="notice">
+        <%= flash[:notice] %>                                    
+    </div>
+<% end %>
 
 <div class ="container">
   <div class="row">

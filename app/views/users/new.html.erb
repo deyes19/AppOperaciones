@@ -1,24 +1,26 @@
-<div class ="container">
+<div class ="container tam-card-personal">
   <div class="row">
-      <div class="col-md-8">
-        <div class="tzona">
-            <h1>NUEVO USUARIO</h1>
-        </div>
-      </div>
-  </div>
-</div>          
-<div class ="container">
-  <div class="card card-dark text-white" style="width:100%">
-    <div class="card-body">
+      <div class="col md-8">
+  <div class="bg-card-personal card  text-white">
+    <div class="card-body ">
       <h2 class="card-title"></h2>
       <div class="row">
+        <%
+=begin%>
+ <div class="logo col-auto"><%= image_tag("record.png", :class => "", :width => "200px") %></div> 
+<%
+=end%>
           <div class="col text-dark">
-            <h4 class="card-title">DATOS DEL USUARIO</h4>
+            <h3 class="card-title "> REGISTRO DE USUARIOS</h3>
+            <p class="text-center">A continuación digita los datos deL Usuario que deseas crear.</p>
                 <div class="centrarcard"><%= render "form", user: @user %></div>
             </div>
           </div>
         </div>
       </div>  
     </div>
+  </div>
+
+      </div>
   </div>
 </div>

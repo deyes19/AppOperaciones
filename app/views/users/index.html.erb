@@ -1,5 +1,13 @@
+<% if flash[:notice] %>
+    <div class="alert alert-success" role="alert" id="notice" class="notice">
+        <%= flash[:notice] %>                                    
+    </div>
+<% end %>
+
+<!--Se agrega personalizacion con boostrap para visualizacion de las vistas de zonas -->
 <div class="container">
-<nav class="navbar navsep navbar-expand-sm navbar-rednav bg-rednav rounded">
+  <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+  <nav class="navbar navsep navbar-expand-sm navbar-rednav bg-rednav rounded">
     <div class="container-fluid">
       <div class="navbar-collapse" id="mynavbar">
         <ul class="navbar-nav me-auto">
@@ -19,13 +27,13 @@
     </div>
   </nav>
 
-<div class="row">
+  
+  <div class="row">
       <div class="col-md-8">
         <div class="tzona">
-            <h1>Usuarios</h1>
+            <h3>USUARIOS</h3>
         </div>
-
-            <table class="table table-dark table-hover">
+            <table class="table  table-striped table-hover ">
                   <tr class="text-dark">
                     <th>Rol</th>
                     <th>Nombre</th>
@@ -47,18 +55,20 @@
                             <td>
                               <i class="separar">
                               <% if can? :destroy, User %>
-                                <%= link_to "", user, :class=>"bi bi-eye-fill btn" %>
-                                <%= button_to "", user, method: :delete, :class=>"bi bi-trash btn", :data=>{turbo_confirm:'Estás seguro?'}%>
+                                <%= link_to "", user, :class=>"bi bi-eye-fill text-dark btn" %>
+                                <%= button_to "", user, method: :delete, :class=>"bi bi-trash text-dark btn", :data=>{turbo_confirm:'Estás seguro?'}%>
                                 <% end %>
                                 <% if can? :edit, User %>
-                                <%= link_to "", edit_user_path(user), :title=>"Editar", :class=>" bi bi-pencil-fill btn" %>
+                                <%= link_to "", edit_user_path(user), :title=>"Editar", :class=>" bi bi-pencil-fill text-dark btn" %>
                                 <% end %>
                               </i>
                             </td> 
                           </tr>
                         <% end %>
                       </div>
-            </table>
-        </div>
+            </table> 
+      </div>
   </div>
-</div> 
+</div>
+
+

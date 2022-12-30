@@ -1,42 +1,40 @@
-
-
-<%= link_to "", users_path, :title=>"Regresar a lista de usuarios", :class=>" bi bi-skip-backward-fill btn" %>
-
 <p style="color: green"><%= notice %></p>
 
-<div class ="container">
+<div class ="container tam-card-personal">
   <div class="row">
-      <div class="col-md-8">
-        <div class="tzona">
-            <h1>INFORMACIÓN DE LOS USUARIOS</h1>
-        </div>
-      </div>
-  </div>
-</div>
-
-<div class ="container">
-<div class="card card-dark text-dark" style="width:100%">
-  <div class="card-body">
-          <h4 class="card-title "></h4>
-              <div class="centrarcard"><%= render @user %>
+      <div class="col md-8">
+  <div class="bg-card-personal card  text-white">
+    <div class="card-body ">
+      <h2 class="card-title"></h2>
+      <div class="row">
+        <%
+=begin%>
+ <div class="logo col-auto"><%= image_tag("record.png", :class => "", :width => "200px") %></div> 
+<%
+=end%>
+          <div class="col text-dark">
+            <h3 class="card-title "> REGISTRO DE USUARIOS</h3>
+            <p class="text-center">A continuación digita los datos deL Usuario que deseas crear.</p>
+                <div class="centrarcard"><%= render @user %>
+                
                 <p>
                   <strong>Registrado desde:</strong>
                   <%= @joined_on %>
                 </p>
+                </div>
 
-              </div>
-              <i>
                 <ul class="separar d-flex">
                   <li><%= button_to "", @user, method: :delete, :title=>"Eliminar", :class=>"bi bi-trash btn" %></li>
                   <li><%= link_to "", edit_user_path(@user), :title=>"Editar", :class=>" bi bi-pencil-fill btn" %></li>
                   <li><%= link_to "", users_path, :title=>"Regresar a lista de usuarios", :class=>" bi bi-skip-backward-fill btn" %></li>
                 </ul>
-              </i>
+            </div>
           </div>
         </div>
-      </div>
-    </div>  
+      </div>  
+    </div>
   </div>
-  
-</div>
+
+      </div>
+  </div>
 </div>
