@@ -1,32 +1,49 @@
+<div class ="container tam-card-personal">
+  <div class="row">
+      <div class="col md-8">
+  <div class="bg-card-personal card  text-white">
+    <div class="card-body ">
+      <h2 class="card-title"></h2>
+      <div class="row">
+        <%
+=begin%>
+ <div class="logo col-auto"><%= image_tag("record.png", :class => "", :width => "200px") %></div> 
+<%
+=end%>
+          <div class="col text-dark">
+            <h3 class="card-title "> Iniciar Sesión</h3>
+            <p class="text-center">A continuación digita los datos para iniciar sesión.</p>
+                <div class="centrarcard">
+                  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                    <div class="field">
+                      <%= f.label "Correo Electrónico", :class=>"form-label fw-bolder mt-2" %><br />
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "border border-info rounded-2" %>
+                    </div>
 
-<div class="col-lg-6 mx-lg-auto">
-  <div class="card shadow">
-    <div class="card-header bg-rednav">
-      <h2 class="card-title text-center text-white">Iniciar Sesión</h2>
-    </div>
-        <div class="card-body text-center ">
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label "Correo Electrónico" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+                    <div class="field">
+                      <%= f.label "Contraseña", :class=>"form-label fw-bolder mt-2" %><br />
+                      <%= f.password_field :password, autocomplete: "current-password", class: "border border-info rounded-2" %>
+                    </div>
 
-  <div class="field">
-    <%= f.label "Contraseña" %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+                    <% if devise_mapping.rememberable? %>
+                      <div class="field mt-2">
+                        <%= f.check_box :remember_me, class: "border border-info rounded-2"  %>
+                        <%= f.label "¿quieres que te recuerde?", :class=>"form-label fw-bolder mt-2" %>
+                      </div>
+                    <% end %>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label "Quieres que te recuerde" %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Iniciar Sesión", :class=>"btn bg-rednav" %>
-  </div>
-<% end %>
+                    <div class="actions">
+                      <%= f.submit "Iniciar Sesión", :class=>"btn bg-rednav" %>
+                    </div>
+                  <% end %>  
+                </div>
+            </div>
+          </div>
         </div>
+      </div>  
     </div>
+  </div>
+
+      </div>
+  </div>
 </div>

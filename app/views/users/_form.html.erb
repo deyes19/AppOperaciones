@@ -10,29 +10,31 @@
       </ul>
     </div>
   <% end %>
+  <div class="container form-control bg-card-personal">
+  <div class="col align-self-center">
   <div class="mb-3">
     <div class="form-group">
-      <%= form.label "Correo electrónico", :class=>"form-label fw-bolder", style: "display: block" %>
+      <%= form.label "Correo electrónico", :class=>"form-label", style: "display: block" %>
       <%= form.text_field :email, class: "border border-info rounded-2" %>
     </div>
   </div>
   <div class="mb-3">
     <div class="form-group">
-      <%= form.label "Nombre", :class=>"form-label fw-bolder", style: "display: block" %>
+      <%= form.label "Nombre", :class=>"form-label", style: "display: block" %>
       <%= form.text_field :name, class: "border border-info rounded-2" %>
     </div>
   </div>
 
   <div class="mb-3">
     <div class="form-group">
-      <%= form.label "Rol Seleccionado", :class=>"form-label fw-bolder", style: "display: block" %>
+      <%= form.label "Rol Seleccionado", :class=>"form-label", style: "display: block" %>
     <%= collection_select( :user, :role_id, Role.all, :id, :name, { prompt: true }) %>
     </div>
   </div>
   
   <div class="mb-3">
     <div class="form-group">
-    <%= form.label :password, :class=>"form-label fw-bolder"%><br>
+    <%= form.label "Contraseña", :class=>"form-label"%><br>
     <%= form.password_field :password, placeholder: "Mínimo 6 caracteres", class: "border border-info rounded-2" %>
     </div>
   </div>
@@ -47,5 +49,6 @@
     </i>
   </div>
 <% end %>
-
+</div>
+</div>
 
