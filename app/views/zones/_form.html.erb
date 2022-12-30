@@ -12,14 +12,14 @@
     </div>
   <% end %>
   <!--Se agrega campo para asignarle manualmente el ID a cada registro-->
- <div class="container form-control bg-card-personal">
+ <div class="container  bg-card-personal w-75">
   <div class="col align-self-center">
-    <%= form.label "Identificador de la zona", :class=>"form-label", style: "display: block" %>
-    <%= form.text_field :id, class: "border border-info rounded-2" %>
+    <%= form.label "Identificador de la zona", :class=>"form-label fw-bolder mt-2", style: "display: block" %>
+    <%= form.text_field :id, class: "form-control border border-info rounded-2" %>
   </div>
   <div class="mb-3">
-    <%= form.label "Nombre de la zona", :class=>"form-label", style: "display: block" %>
-    <%= form.text_field :description, class: "border border-info rounded-2" %>
+    <%= form.label "Nombre de la zona", :class=>"orm-label fw-bolder mt-2", style: "display: block" %>
+    <%= form.text_field :description, class: "form-control border border-info rounded-2" %>
   </div>
 
   <div>
