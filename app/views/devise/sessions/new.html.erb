@@ -1,21 +1,22 @@
-<div class ="container">
-  <div class="row">
-      <div class="col">
-  <div class="bg-card-personal card  text-white">
-    <div class="card-body">
-      <h2 class="card-title"></h2>
+<div class ="container w-60">
+
+  <div class="row container fluid">
+      <div class="col container">
+  <div class="bg-card-personal card  text-white container">
+    <div class="card-body container">
+      <h2 class="card-title container"></h2>
       <div class="row">
         <%
 =begin%>
  <div class="logo col-auto"><%= image_tag("record.png", :class => "", :width => "200px") %></div> 
 <%
 =end%>
-          <div class="col text-dark">
-            <h3 class="card-title "> Iniciar Sesión</h3>
+          <div class="col text-dark container">
+            <h3 class="card-title "> INICIAR SESIÓN</h3>
             <p class="text-center">A continuación digita los datos para iniciar sesión.</p>
                 
-                <div class=" bg-card-personal">
-                  <div class="col">
+                <div class=" bg-card-personal container">
+                  <div class="col container">
                   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                     <%= f.label "Correo electrónico", :class=>"form-label fw-bolder text-start" %>
                     <div class="input-group mb-3">
