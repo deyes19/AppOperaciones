@@ -1,5 +1,5 @@
 class ActiveTypesController < ApplicationController
-  before_action :set_active_type, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
 
   # GET /active_types or /active_types.json
   def index

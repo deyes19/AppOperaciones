@@ -1,6 +1,16 @@
 class ActivesController < ApplicationController
   load_and_authorize_resource
 
+
+  def import
+    file = params[:file]
+    return redirect_to actives_path, notice: 'Sólo se admite formato de separación de comas (.CSV)' unless file.content_type == 'text/csv'
+
+    CsvImportZonesService.new.call(file)
+
+    redirect_to actives_path, notice: 'ACTIVOS IMPORTADOS EXITOSAMENTE'
+  end
+
   # GET /actives or /actives.json
   def index
     @actives = Active.all
@@ -65,6 +75,6 @@ class ActivesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def active_params
-      params.require(:active).permit(:id, :barcode, :serial, :name, :destination_id, :ubication_id)
+      params.require(:active).permit(:id, :barcode, :serial, :name, :destination_id, :ubication_id, :plate, :status, :active_type_id)
     end
 end

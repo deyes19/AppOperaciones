@@ -1,21 +1,20 @@
 <div class="container">
     <div id="<%= dom_id active %>">
       <p>
-        <strong>Placa de activo:</strong>
-        <%= active.id %>
-      </p>
-    
-      <p>
         <strong>Código de barras:</strong>
         <%= active.barcode %>
       </p>
-    <p>
-        <strong>Serial:</strong>
-        <%= active.serial %>
+      <p>
+        <strong>Placa del activo:</strong>
+        <%= active.plate %>
       </p>
       <p>
         <strong>Nombre del activo:</strong>
         <%= active.name %>
+      </p>
+      <p>
+        <strong>Padre(1) o hijo(2)?: </strong>
+        <%= active.active_type_id %>
       </p>
       <p>
       <strong>Destinos:</strong>

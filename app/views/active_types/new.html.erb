@@ -1,25 +1,26 @@
-<div class ="container">
+<div class ="container tam-card-personal">
   <div class="row">
-      <div class="col-md-8">
-        <div class="tzona">
-            <h1>NUEVO TIPO DE ACTIVO</h1>
-        </div>
-      </div>
-  </div>
-</div>          
-<div class ="container">
-  <div class="card card-dark text-white" style="width:100%">
-    <div class="card-body">
+      <div class="col md-8">
+  <div class="bg-card-personal card  text-white">
+    <div class="card-body ">
       <h2 class="card-title"></h2>
       <div class="row">
-        <div class="logo col-auto"><%= image_tag("record.png", :class => "", :width => "200px") %></div>
-          <div class="col">
-            <h4 class="card-title">DATOS DEL TIPO DE ACTIVO</h4>
+        <%
+=begin%>
+ <div class="logo col-auto"><%= image_tag("record.png", :class => "", :width => "200px") %></div> 
+<%
+=end%>
+          <div class="col text-dark">
+            <h3 class="card-title "> REGISTRAR NUEVO TIPO DE ACTIVO</h3>
+            <p class="text-center">A continuación digita los datos del tipo activo</p>
                 <div class="centrarcard"><%= render "form", active_type: @active_type %></div>
             </div>
           </div>
         </div>
       </div>  
     </div>
+  </div>
+
+      </div>
   </div>
 </div>

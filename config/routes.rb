@@ -11,7 +11,11 @@ Rails.application.routes.draw do
     end
   end
   root "actives#index"
-  resources :actives
+  resources :actives do
+    collection do
+      post :import
+    end
+  end
   resources :active_types
   resources :suppliers
   resources :kinds

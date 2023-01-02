@@ -10,27 +10,25 @@
       </ul>
     </div>
   <% end %>
-
   <!--Se agrega campo para asignarle manualmente el ID a cada registro-->
- <div class="container mt-3">
-  <div class="mb-3 mt-3">
-    <%= form.label "Identificador del tipo de activo", :class=>"form-label", style: "display: block" %>
-    <%= form.text_field :id, :class=>"form-control" %>
+ <div class="container  bg-card-personal w-75">
+  <div class="col align-self-center">
+    <%= form.label "Identificador del tipo de activo", :class=>"form-label fw-bolder mt-2", style: "display: block" %>
+    <%= form.text_field :id, :class=>"form-control border border-info rounded-2" %>
   </div>
   <div class="mb-3">
-    <%= form.label "Nombre del tipo de activo", :class=>"form-label", style: "display: block" %>
-    <%= form.text_field :description, :class=>"form-control" %>
+    <%= form.label "Nombre del activo", :class=>"form-label fw-bolder mt-2", style: "display: block" %>
+    <%= form.text_field :description, class: "form-control border border-info rounded-2" %>
   </div>
-
   <div>
     <i class= "separar d-flex bi">
       <span class="">
-        <%= button_tag(:type => 'submit', :title=>'Actualiza los datos', :class => 'bi bi-arrow-counterclockwise btn') do %>
+        <%= button_tag(:type => 'submit', :title=>'Actualiza los datos', :class => 'bi bi-arrow-counterclockwise text-dark btn') do %>
           <i class="icon-up-arrow icon-white"></i>
         <% end %>
           
-      </span>
-        <%= link_to "", active_types_path, :class=>"bi bi-skip-backward-btn-fill btn", :title=>'Retornar a los tipos de activo' %>
+      </span> 
+         <%= link_to "", active_types_path, :class=>"bi bi-skip-backward-btn-fill text-dark btn", :title=>'Retornar a los tipos de activo' %>
     </i>
   </div>
 <% end %>
