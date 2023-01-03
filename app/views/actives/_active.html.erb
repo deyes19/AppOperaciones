@@ -1,32 +1,41 @@
 <div class="container">
-    <div id="<%= dom_id active %>">
-      <p>
-        <strong>Serial:</strong>
-        <%= active.serial %>
-      </p>
-      <p>
-        <strong>Placa del activo:</strong>
-        <%= active.plate %>
-      </p>
-      <p>
-        <strong>Nombre del activo:</strong>
-        <%= active.name %>
-      </p>
-      <p>
-        <strong>Padre(1) o hijo(2)?: </strong>
-        <%= active.rankactive_id %>
-      </p>
-      <p>
-        <strong> Responsable: </strong>
-        <%= active.user_id %>
-      </p>
-      <p>
-      <strong>Destinos:</strong>
-      <%= active.destination_id %>
-    </p>
-    <p>
-      <strong>Ubicación: </strong>
-      <%= active.ubication_id %>
-    </p>
-    </div>
+          <table class="table  table-striped table-hover text-dark">
+                  <tr class="">
+                    <th>SERIAL</th>
+                    <td><%= active.serial %></td>
+                  </tr>
+                  <tr>
+                    <th>PLACA</th>
+                    <td><%= active.plate %></td>
+                  </tr>
+                  <tr>
+                    <th>TIPO DE ACTIVO</th>
+                    <td><%= active.active_type_id %></td>
+                  </tr>
+                  <tr>
+                    <th>NOMBRE DEL ACTIVO</th>
+                    <td><%= active.name %></td>
+                  </tr>
+                  <tr>
+                    <th>RESPONSABLE</th>
+                    <td><%= active.user_id %></td>
+                  </tr>
+                  <tr>
+                    <th>ESTADO</th>
+                    <td><%= active.status %></td>
+                  </tr>
+                  <tr>
+                    <th>JERARQUIA</th>
+                    <td><%= active.rankactive_id %></td>
+                  </tr>
+                  <tr>
+                    <th>DESTINOS</th>
+                    <td><%= active.destination_id %></td>
+                  </tr>
+                  <tr>
+                    <th>UBICACIÓN</th>
+                    <td><%= active.ubication_id %></td>
+                  </tr>
+          </table>
 </div>
+

@@ -42,7 +42,6 @@ class ActivesController < ApplicationController
   # POST /actives or /actives.json
   def create
     @active = Active.new(active_params)
-    @active.user_id = current_user.id
 
     respond_to do |format|
       if @active.save

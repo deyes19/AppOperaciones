@@ -2,10 +2,11 @@ class Active < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_full_text, against: {
-    name: 'A',
-    serial: 'B',
-    barcode: 'C'
-}
+    name: 'D',
+    serial: 'C',
+    barcode: 'B',
+    plate: 'A',
+  }
     belongs_to :destination
     belongs_to :ubication
     validates :plate, uniqueness: { scope: :active_type_id, notice: "Ya existe para este padre." }
