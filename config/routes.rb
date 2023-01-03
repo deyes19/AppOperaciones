@@ -20,7 +20,6 @@ Rails.application.routes.draw do
   resources :suppliers
   resources :kinds
   resources :brands
-  resources :responsibles
   resources :invoices
   resources :groups
   resources :destinations do
