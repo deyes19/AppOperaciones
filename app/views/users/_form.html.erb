@@ -28,7 +28,7 @@
   <div class="mb-3">
     <div class="form-group">
       <%= form.label "Rol Seleccionado", :class=>"form-label", style: "display: block" %>
-    <%= collection_select( :user, :role_id, Role.all, :id, :name, { prompt: true }) %>
+      <%= collection_select( :user, :role_id, Role.all, :id, :name, { prompt: true }) %>
     </div>
   </div>
   

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_03_145019) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_03_154754) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -32,9 +32,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_03_145019) do
     t.bigint "active_type_id", null: false
     t.boolean "status"
     t.integer "plate"
+    t.bigint "rankactive_id", null: false
     t.index ["active_type_id", "plate"], name: "index_actives_on_active_type_id_and_plate", unique: true
     t.index ["active_type_id"], name: "index_actives_on_active_type_id"
     t.index ["destination_id"], name: "index_actives_on_destination_id"
+    t.index ["rankactive_id"], name: "index_actives_on_rankactive_id"
     t.index ["ubication_id"], name: "index_actives_on_ubication_id"
     t.index ["user_id"], name: "index_actives_on_user_id"
   end
@@ -134,6 +136,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_03_145019) do
 
   add_foreign_key "actives", "active_types"
   add_foreign_key "actives", "destinations"
+  add_foreign_key "actives", "rankactives"
   add_foreign_key "actives", "ubications"
   add_foreign_key "actives", "users"
   add_foreign_key "centers", "zones"
