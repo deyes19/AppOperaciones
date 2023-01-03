@@ -16,18 +16,12 @@
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
           <i>
-           <% if can? :create, Active %>
-            <%= link_to " Nueva activo", new_active_path, :class=>"nav-item nav-link bi bi-plus-square-dotted" %>
+           <% if can? :create, Rankactive %>
+            <%= link_to " Nueva Jerarquia", new_rankactive_path, :class=>"nav-item nav-link bi bi-plus-square-dotted" %>
           <% end %>
           </i>
           </li>
         </ul>
-        <form class="d-flex">
-            <%= form_with url: actives_path, method: :get do |form| %>
-            <%= form.text_field :query_text, placeholder: "Busca tu activo", onChange: 'this.form.requestSubmit()', value: params[:query_text] %>
-            <button class="btn btn-secondary" type="button">Buscar</button>
-          <% end %>
-        </form>
       </div>
     </div>
   </nav>
@@ -36,42 +30,32 @@
   <div class="row">
       <div class="col-md-8">
         <div class="tzona">
-            <h3>ACTIVOS</h3>
+            <h3>JERARQUIA</h3>
         </div>
             <table class="table  table-striped table-hover">
                   <tr class="text-dark">
-                    <th>PLACA DE ACTIVO</th>
-                    <th>TIPO DE ACTIVO</th>
-                    <th>NOMBRE</th>
-                    <th>ESTADO</th>
+                    <th>ID</th>
+                    <th>NOMBRE DE JERARQUIA</th>
                     <th>ACCIONES</th>
                   </tr>
-                      <div id="actives">
-                        <% @actives.each do |active| %>
+                      <div id="rankactives">
+                        <% @rankactives.each do |rankactive| %>
                           <tr>
                             <td>
-                              <%= active.plate %>
+                              <%= rankactive.id %>
                             </td>
                             <td>
-                              <%= active.active_type_id%>
-                            </td>
-                            <td>
-                              <%= active.name %>
-                            </td>
-                            <td>
-                              <%= active.status %>
-                            
-                              
+                              <%= rankactive.name%>
                             </td>
                             <td>
                               <i class="separar">
                               
-                                <%= link_to "", active, :class=>"bi bi-eye-fill btn" %>
+                                <%= link_to "", rankactive, :class=>"bi bi-eye-fill text-dark btn" %>
                                 <% if can? :destroy, Active %>
-                                <%= button_to "", active, method: :delete, :class=>"bi bi-trash btn", :data=>{turbo_confirm:'Estás seguro?'}%>
+                                <%= button_to "", rankactive, method: :delete, :class=>"bi bi-trash text-dark btn", :data=>{turbo_confirm:'Estás seguro?'}%>
                                 <% end %>
                                 <% if can? :edit, Active %>
-                                <%= link_to "", edit_active_path(active), :title=>"Editar", :class=>" bi bi-pencil-fill btn" %>
+                                <%= link_to "", edit_rankactive_path(rankactive), :title=>"Editar", :class=>" bi bi-pencil-fill text-dark btn" %>
                                 <% end %>
                               </i>
                             </td> 

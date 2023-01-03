@@ -6,7 +6,7 @@ class ActivesController < ApplicationController
     file = params[:file]
     return redirect_to actives_path, notice: 'Sólo se admite formato de separación de comas (.CSV)' unless file.content_type == 'text/csv'
 
-    CsvImportZonesService.new.call(file)
+    CsvImportActivesService.new.call(file)
 
     redirect_to actives_path, notice: 'ACTIVOS IMPORTADOS EXITOSAMENTE'
   end

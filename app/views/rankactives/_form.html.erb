@@ -1,0 +1,32 @@
+<%= form_with(model: rankactive) do |form| %>
+  
+  <% if rankactive.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(rankactive.errors.count, "error") %> No se pudo guardar la jerarquia</h2>
+
+      <ul>
+        <% rankactive.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div> 
+  <% end %>
+  <!--Se agrega campo para asignarle manualmente el ID a cada registro-->
+ <div class="container  bg-card-personal w-75">
+  <div class="mb-3">
+    <%= form.label "Nombre de la jerarquia", :class=>"form-label fw-bolder mt-2", style: "display: block" %>
+    <%= form.text_field :name, class: "form-control border border-info rounded-2" %>
+  </div>
+
+  <div>
+    <i class= "separar d-flex bi">
+      <span class="">
+        <%= button_tag(:type => 'submit', :title=>'Actualiza los datos', :class => 'bi bi-arrow-counterclockwise text-dark btn') do %>
+          <i class="icon-up-arrow icon-white"></i>
+        <% end %>
+          
+      </span> 
+        <%= link_to "", rankactives_path, :class=>"bi bi-skip-backward-btn-fill text-dark btn", :title=>'Retornar a las zonas' %>
+    </i>
+  </div>
+<% end %>

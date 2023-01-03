@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @rankactive %>
+
+<div>
+  <%= link_to "Edit this rankactive", edit_rankactive_path(@rankactive) %> |
+  <%= link_to "Back to rankactives", rankactives_path %>
+
+  <%= button_to "Destroy this rankactive", @rankactive, method: :delete %>
+</div>
