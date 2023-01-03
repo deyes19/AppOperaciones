@@ -1,8 +1,8 @@
 <div class="container">
     <div id="<%= dom_id active %>">
       <p>
-        <strong>Código de barras:</strong>
-        <%= active.barcode %>
+        <strong>Serial:</strong>
+        <%= active.serial %>
       </p>
       <p>
         <strong>Placa del activo:</strong>
@@ -14,11 +14,11 @@
       </p>
       <p>
         <strong>Padre(1) o hijo(2)?: </strong>
-        <%= active.rankactive.name %>
+        <%= active.rankactive_id %>
       </p>
       <p>
         <strong> Responsable: </strong>
-        <%= active.user.name %>
+        <%= active.user_id %>
       </p>
       <p>
       <strong>Destinos:</strong>

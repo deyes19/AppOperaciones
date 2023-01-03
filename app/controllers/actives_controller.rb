@@ -2,11 +2,19 @@ class ActivesController < ApplicationController
   load_and_authorize_resource
 
 
-  def import
+  def import1
     file = params[:file]
     return redirect_to actives_path, notice: 'Sólo se admite formato de separación de comas (.CSV)' unless file.content_type == 'text/csv'
 
     CsvImportActivesService.new.call(file)
+
+    redirect_to actives_path, notice: 'ACTIVOS IMPORTADOS EXITOSAMENTE'
+  end
+  def import2
+    file = params[:file]
+    return redirect_to actives_path, notice: 'Sólo se admite formato de separación de comas (.CSV)' unless file.content_type == 'text/csv'
+
+    CsvImportActivesService2.new.call(file)
 
     redirect_to actives_path, notice: 'ACTIVOS IMPORTADOS EXITOSAMENTE'
   end

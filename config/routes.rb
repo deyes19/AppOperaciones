@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   root "actives#index"
   resources :actives do
     collection do
-      post :import
+      post :import1
+      post :import2
     end
   end
   resources :active_types

@@ -38,13 +38,29 @@
 <%
 =end%>
           <div class="col text-dark">
-            <h5 class="card-title ">REGISTRO MASIVO DE ACTIVOS</h5>
-            <p class="text-center">Escoja un archivo en formato .CSV para la creación masiva de Centros de costo</p>
+            <h5 class="card-title ">REGISTRO MASIVO DE ACTIVOS PADRES</h5>
+            <p class="text-center">Escoja un archivo en formato .CSV para la creación masiva de ACTIVOS PADRES</p>
                
             </div>
           </div>
             <div class ="text-center text-dark">
-              <%= form_with url: import_actives_path, method: :post do |form| %>
+              <%= form_with url: import1_actives_path, method: :post do |form| %>
+                <div class ="input-group">
+                  <%= form.file_field :file, class:"form-control border border-info", accept: ".csv" %>
+                  <%= form.button "", class:" btn btn-outline-secondary border border-info fa-solid fa-file-import", title:"Importar" %>
+                </div>
+              <% end %>
+              
+       
+
+        <div class="col text-dark mt-3">
+            <h5 class="card-title ">REGISTRO MASIVO DE ACTIVOS HIJOS</h5>
+            <p class="text-center">Escoja un archivo en formato .CSV para la creación masiva de ACTIVOS PADRES</p>
+               
+            </div>
+          </div>
+            <div class ="text-center text-dark">
+              <%= form_with url: import2_actives_path, method: :post do |form| %>
                 <div class ="input-group">
                   <%= form.file_field :file, class:"form-control border border-info", accept: ".csv" %>
                   <%= form.button "", class:" btn btn-outline-secondary border border-info fa-solid fa-file-import", title:"Importar" %>

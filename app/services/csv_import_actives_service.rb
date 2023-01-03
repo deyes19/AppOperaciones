@@ -6,13 +6,16 @@ class CsvImportActivesService
       csv = CSV.parse(file, headers: true, col_sep: ',')
       csv.each do |row|
         a_hash = {}
-        a_hash[:id] = row['NUMERO']
-        a_hash[:name] = row['NOMBREACTIVO']
-        a_hash[:destination_id] = row['CODDESTINO']
-        a_hash[:ubication_id] = row['CODUBICACION']
-        a_hash[:user_id] = row['CEDULA']
-        a_hash[:rankactive_id] = row['CODJERARQUIA']
-        a_hash[:status] = row['ESTADO']
+        a_hash[:id] = row['Codigo']
+        a_hash[:name] = row['Nombre del Activo fijo']
+        a_hash[:destination_id] = row['Destino']
+        a_hash[:plate] = row['Placa']
+        a_hash[:ubication_id] = row['Ubicación']
+        a_hash[:user_id] = row['Responsable']
+        a_hash[:active_type_id] = row['Tipo']
+        a_hash[:status] = row['Activo']
+        a_hash[:rankactive_id] = 7
+        a_hash[:serial] = row['Serial']
         Active.find_or_create_by!(a_hash)
         # binding.b
         # p row

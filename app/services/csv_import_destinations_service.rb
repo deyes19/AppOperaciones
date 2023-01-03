@@ -8,7 +8,7 @@ class CsvImportDestinationsService
         d_hash = {}
         d_hash[:id] = row['CODDESTINO']
         d_hash[:description] = row['NOMBREDESTINO']
-        d_hash[:center_id] = row['CODCCOSTO']
+        d_hash[:center_id] = row['Ccosto']
         Destination.find_or_create_by!(d_hash)
         # binding.b
         # p row
