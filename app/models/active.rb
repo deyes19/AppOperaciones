@@ -3,7 +3,7 @@ class Active < ApplicationRecord
   include PgSearch::Model
   pg_search_scope :search_full_text, against: {
     name: 'D',
-    serial: 'C',
+    user_id: 'C',
     barcode: 'B',
     plate: 'A',
   }

@@ -10,15 +10,21 @@
                   </tr>
                   <tr>
                     <th>TIPO DE ACTIVO</th>
-                    <td><%= active.active_type_id %></td>
+                    <td><% a=ActiveType.find(active.active_type_id) %>
+                              <%= a.description %></td>
                   </tr>
                   <tr>
                     <th>NOMBRE DEL ACTIVO</th>
                     <td><%= active.name %></td>
                   </tr>
                   <tr>
-                    <th>RESPONSABLE</th>
+                    <th>CÉDULA DEL RESPONSABLE</th>
                     <td><%= active.user_id %></td>
+                  </tr>
+                  <tr>
+                    <th>NOMBRE DEL RESPONSABLE</th>
+                    <td><% a=User.find(active.user_id) %>
+                              <%= a.name %></td>
                   </tr>
                   <tr>
                     <th>ESTADO</th>
@@ -26,15 +32,18 @@
                   </tr>
                   <tr>
                     <th>JERARQUIA</th>
-                    <td><%= active.rankactive_id %></td>
+                    <td><% a=Rankactive.find(active.rankactive_id) %>
+                              <%= a.name %></td>
                   </tr>
                   <tr>
                     <th>DESTINOS</th>
-                    <td><%= active.destination_id %></td>
+                    <td><% a=Destination.find(active.destination_id) %>
+                              <%= a.description %></td>
                   </tr>
                   <tr>
                     <th>UBICACIÓN</th>
-                    <td><%= active.ubication_id %></td>
+                    <td><% a=Ubication.find(active.ubication_id) %>
+                              <%= a.name %></td>
                   </tr>
           </table>
 </div>

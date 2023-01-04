@@ -82,6 +82,6 @@ class ActivesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def active_params
-      params.require(:active).permit(:id, :barcode, :serial, :name, :destination_id, :ubication_id, :plate, :status, :active_type_id)
+      params.require(:active).permit(:id, :barcode, :serial, :name, :destination_id, :ubication_id, :plate, :user_id, :rankactive_id, :status, :active_type_id)
     end
 end

@@ -24,9 +24,9 @@
         </ul>
         <form class="d-flex">
             <%= form_with url: actives_path, method: :get do |form| %>
-            <%= form.text_field :query_text, placeholder: "Busca tu activo", onChange: 'this.form.requestSubmit()', value: params[:query_text] %>
-            <button class="btn btn-secondary" type="button">Buscar</button>
-          <% end %>
+              <%= form.text_field :query_text, placeholder: "Busca el activo", onChange: 'this.form.requestSubmit()', value: params[:query_text] %>
+              <button class="btn btn-secondary" type="button">Buscar</button>
+            <% end %>
         </form>
       </div>
     </div>
@@ -41,7 +41,7 @@
             <table class="table  table-striped table-hover">
                   <tr class="text-dark">
                     <th>PLACA DE ACTIVO</th>
-                    <th>TIPO DE ACTIVO</th>
+                    <th>C. DE COSTO</th>
                     <th>NOMBRE</th>
                     <th>RESPONSABLE</th>
                     <th>ESTADO</th>
@@ -54,8 +54,9 @@
                               <%= active.plate %>
                             </td>
                             <td>
-                              <% a=ActiveType.find(active.active_type_id) %>
-                              <%= a.description %>
+                              <% a=Destination.find(active.destination_id) %>
+                              <% b=Center.find(a.center_id) %>
+                              <%= b.name %>
                             </td>
                             <td>
                               <%= active.name %>

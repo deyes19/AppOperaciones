@@ -16,51 +16,57 @@
     <div class="row">
   <div class="col align-self-center">
           <div class="mb-3">
-            <%= form.label "Placa del activo", :class=>"form-label fw-bolder mt-2", style: "display: block" %>
+            <%= form.label "Placa del activo", :class=>"form-label fw-bolder ", style: "display: block" %>
             <%= form.text_field :plate, :class=>"form-control border border-info rounded-2" %>
           </div>
           <div class="mb-3">
-              <%= form.label "Código de barras del activo", :class=>"form-label fw-bolder mt-2", style: "display: block" %>
+              <%= form.label "Código de barras del activo", :class=>"form-label fw-bolder ", style: "display: block" %>
               <%= form.text_field :barcode, :class=>"form-control border border-info rounded-2" %>
           </div>
         <div class="mb-3">
           <div class="form-group">
-            <label class="control-label col-sm-6">Ubicación: </label>
-            <%= collection_select( :active, :ubication_id, Ubication.all, :id, :name, { prompt: true }) %>
+              <label class="control-label col-sm-6">Estado? </label><br>
+              <%= form.select :status, [["Activo", true], ["Inactivo", false]], {} %>
           </div>
-            <label class="control-label col-sm-6 mt-2">Tipo de activo </label>
+          <div class ="mb-3">
+          <div class="form-group">
+            <label class="control-label col-sm-6">Tipo de activo </label>
             <%= form.select :active_type_id, options_from_collection_for_select(ActiveType.all, :id, :description) %>
-           <div class="form-group mt-2">
-            <label class="control-label col-sm-6">Es padre o hijo?: </label>
+             <label class="control-label col-sm-6">Es padre o hijo?: </label><br>
             <%= form.select :rankactive_id, options_from_collection_for_select(Rankactive.all, :id, :name) %>
+          </div>
           </div>
         </div>
         
         </div>
       
-        <div class="col">
+        <div class="col align-self-center">
           <div class="mb-3">
-            <%= form.label "Nombre del activo", :class=>"form-label fw-bolder mt-2", style: "display: block" %>
+            <%= form.label "Nombre del activo", :class=>"form-label fw-bolder ", style: "display: block" %>
             <%= form.text_field :name, :class=>"form-control border border-info rounded-2" %>
           </div>
           <div class="mb-3">
-            <%= form.label "Serial del activo", :class=>"form-label fw-bolder mt-2", style: "display: block" %>
+            <%= form.label "Serial del activo", :class=>"form-label fw-bolder ", style: "display: block" %>
             <%= form.text_field :serial, :class=>"form-control border border-info rounded-2" %>
           </div>  
   
             
           
         <div class="mb-3">
+         <div class="form-group">
+            <label class="control-label col-sm-6">Selecciona el centro de costo: </label>
+              <%= form.select :center_id, options_for_select(Center.all.collect { |c| [c.name, c.id]}), {} %>        
+          </div>
           <div class="form-group">
             <label class="control-label col-sm-6">Seleccione un Destino: </label>
-            <%= form.select :destination_id, options_from_collection_for_select(Destination.all, :id, :description) %>
-           
+            <%= collection_select( :active, :destination_id, Destination.all, :id, :description, { prompt: true }) %>
           </div>
-          <div class="form-group mt-2">
-            <label class="control-label col-sm-6">Estado? </label>
-            <%= form.select :status, [["Activo", true], ["Inactivo", false]], {} %>
-        </div>
-        <div class="form-group mt-2">
+          <div class="form-group">
+            <label class="control-label col-sm-6">Ubicación: </label>
+            <%= collection_select( :active, :ubication_id, Ubication.all, :id, :name, { prompt: true }) %>
+          </div>
+
+        <div class="form-group">
             <label class="control-label col-sm-6">Responsable</label>
             <%= form.select :user_id, options_from_collection_for_select(User.all, :id, :name) %>
         </div>
@@ -76,7 +82,7 @@
         </span>
           <%= link_to "", actives_path, :class=>"bi bi-skip-backward-btn-fill text-dark btn", :title=>'Retornar a los activos' %>
         </i>
+         </div>
+ </div>
+ </div>
  <% end %>
- </div>
- </div>
- </div>
