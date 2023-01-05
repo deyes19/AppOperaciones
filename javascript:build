@@ -1,17 +1,7 @@
 yarn install v1.22.19
 [1/4] Resolving packages...
-[2/4] Fetching packages...
-[3/4] Linking dependencies...
-[4/4] Building fresh packages...
-success Saved lockfile.
-Done in 3.65s.
+success Already up-to-date.
+Done in 0.11s.
 yarn run v1.22.19
 $ esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets
-Done in 0.19s.
-yarn install v1.22.19
-[1/4] Resolving packages...
-success Already up-to-date.
-Done in 0.24s.
-yarn run v1.22.19
-$ sass ./app/assets/stylesheets/application.bootstrap.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules
-Done in 5.34s.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

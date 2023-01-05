@@ -87,3 +87,5 @@ gem "devise", "~> 4.8"
 gem "cancancan", "~> 3.4"
 #PostgreSQL Search support
 gem "pg_search", "~> 2.3"
+
+gem "tailwindcss-rails", "~> 2.0"
