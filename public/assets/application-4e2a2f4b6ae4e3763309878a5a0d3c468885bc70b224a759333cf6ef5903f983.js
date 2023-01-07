@@ -6648,4 +6648,4 @@
   application.debug = false;
   window.Stimulus = application;
 })();
-//# sourceMappingURL=assets/application.js.map
+
