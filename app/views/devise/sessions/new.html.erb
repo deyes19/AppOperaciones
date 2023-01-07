@@ -17,7 +17,12 @@
                 
                 <div class=" bg-card-personal container">
                   <div class="col container">
-                  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                  <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo:false }) do |f|  %>
+                  <% if flash[:notice] %>
+                      <div class="alert alert-success" role="alert" id="notice" class="notice">
+                          <%= flash[:notice] %>                                    
+                      </div>
+                  <% end %>
                     <%= f.label "Correo electrónico", :class=>"form-label fw-bolder text-start" %>
                     <div class="input-group mb-3">
                       <span class="input-group-text bg-card-personal"><i class=" bg-card-personal fa-solid fa-envelope"></i></span>
@@ -37,7 +42,7 @@
                     <% end %>
 
                     <div class="centrarcard p-3">
-                      <%= f.submit "Iniciar Sesión", :class=>" btn bg-rednav " %>
+                      <%= f.submit "Iniciar Sesión", :class=>" btn bg-rednav ", data: { turbo_false: true } %>
                     </div>
                   <% end %> 
                   </div> 
