@@ -61,8 +61,7 @@
               </a>
               <ul class="dropdown-menu">
                 <% if user_signed_in? %>
-                  
-                  <%= link_to "Editar perfil", edit_user_registration_path, :class=>"dropdown-item text-dark " %>
+                  <%= link_to "Perfil", user_path(current_user), :class=>"dropdown-item text-dark " %>
                   <%= button_to "Cerrar sesión", destroy_user_session_path, :class=>"dropdown-item text-dark ", method: :delete, data: { turbo:false } %>
                 <% else %>
                   <%= link_to "Iniciar sesion", new_user_session_path, :class=>"dropdown-item text-dark" %>

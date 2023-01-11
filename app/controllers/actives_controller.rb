@@ -33,6 +33,8 @@ class ActivesController < ApplicationController
 
   # GET /actives/new
   def new
+    @centers=Center.all.order('name ASC')
+    @destination=Destination.all.order('description ASC')
   end
 
   # GET /actives/1/edit
