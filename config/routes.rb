@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   root "actives#index"
   resources :actives do
     collection do
+      get 'not_active'
       post :import1
       post :import2
     end

@@ -75,6 +75,6 @@ class UbicationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ubication_params
-      params.require(:ubication).permit(:name, :id)
+      params.require(:ubication).permit(:name, :id, :destination_id)
     end
 end

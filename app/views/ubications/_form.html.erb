@@ -22,14 +22,16 @@
     <%= form.label "Nombre ubicación", :class=>"form-label fw-bolder mt-2", style: "display: block" %>
     <%= form.text_field :name, :class=>"form-control border border-info rounded-2" %>
   </div>
+  <label class="control-label col-sm-6">Seleccione un Destino: </label>
+  <%= collection_select( :ubication, :destination_id, Destination.all, :id, :description, { prompt: true }) %>
+
 
   <div>
     <i class= "separar d-flex bi">
       <span class="">
         <%= button_tag(:type => 'submit', :title=>'Actualiza los datos', :class => 'bi bi-arrow-counterclockwise text-dark btn') do %>
           <i class="icon-up-arrow icon-white"></i>
-        <% end %>
-          
+        <% end %>         
       </span> 
         <%= link_to "", ubications_path, :class=>"bi bi-skip-backward-btn-fill text-dark btn", :title=>'Retornar a las zonas' %>
     </i>

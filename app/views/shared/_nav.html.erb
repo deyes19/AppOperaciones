@@ -29,8 +29,9 @@
                 <%= link_to "Ir a Ubicaciones", ubications_path, :class=>"dropdown-item text-dark "  %>
                 </li>
                 <li>
-                    <%= link_to "Ir a Activos", actives_path, :class=>"dropdown-item text-dark "  %>
+                   <%= link_to "Ir a De baja", not_active_actives_path, :class=>"dropdown-item text-dark" %>
                 </li>
+                   <%= link_to "Ir a Activos", actives_path, :class=>"dropdown-item text-dark" %>
                 <li> 
                     <%= link_to "Ir a Tipos de Activo", active_types_path, :class=>"dropdown-item text-dark "  %>
                 </li>

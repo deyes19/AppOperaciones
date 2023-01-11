@@ -44,7 +44,7 @@
                     <th>ACCIONES</th>
                   </tr>
                       <div id="destinations">
-                        <% @destinations.each do |destination| %>
+                        <% @destinations.order('id asc').each do |destination| %>
                           <tr>
                             <td>
                               <%= destination.id %>

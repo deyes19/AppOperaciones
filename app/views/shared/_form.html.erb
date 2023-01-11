@@ -49,10 +49,25 @@
             <%= form.label "Serial del activo", :class=>"form-label fw-bolder ", style: "display: block" %>
             <%= form.text_field :serial, :class=>"form-control border border-info rounded-2" %>
           </div>  
+  
+            
           
         <div class="mb-3">
-      <label class="control-label col-sm-6">Definir ubicación:</label>
-        <%= link_to "", actives_path, :class=>" fa-solid fa-location-crosshairs text-dark btn", :title=>'Definir UBICACIÓN' %>
+         <div class="form-group">
+            <label class="control-label col-sm-6">Selecciona el centro de costo: </label>
+              <%= collection_select( :active, :ubication_id, Center.all, :id, :name, { prompt: true }) %>       
+          </div>
+          <div class="form-group">
+          
+            <label class="control-label col-sm-6">Seleccione un Destino: </label>
+            <%= collection_select( :active, :destination_id, Destination.all, :id, :description, { prompt: true }) %>
+
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-6">Ubicación: </label>
+            <%= collection_select( :active, :ubication_id, Ubication.all, :id, :name, { prompt: true }) %>
+          </div>
+
         <div class="form-group">
             <label class="control-label col-sm-6">Responsable</label>
             <%= form.select :user_id, options_from_collection_for_select(User.all, :id, :name) %>

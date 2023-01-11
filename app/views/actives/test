@@ -1,0 +1,14 @@
+         <div class="form-group">
+            <label class="control-label col-sm-6">Selecciona el centro de costo: </label>
+              <%= collection_select( :active, :ubication_id, Center.all, :id, :name, { prompt: true }) %>       
+          </div>
+          <div class="form-group">
+          
+            <label class="control-label col-sm-6">Seleccione un Destino: </label>
+            <%= collection_select( :active, :destination_id, Destination.all, :id, :description, { prompt: true }) %>
+
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-6">Ubicación: </label>
+            <%= collection_select( :active, :ubication_id, Ubication.all, :id, :name, { prompt: true }) %>
+          </div>

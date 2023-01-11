@@ -21,7 +21,14 @@ class ActivesController < ApplicationController
 
   # GET /actives or /actives.json
   def index
-    @actives = Active.all
+    @actives = Active.where(status: true)
+    if params[:query_text].present?
+      @actives = @actives.search_full_text(params[:query_text])
+    end
+  end
+
+  def index_not_active
+    @actives = Active.where(status: false)
     if params[:query_text].present?
       @actives = @actives.search_full_text(params[:query_text])
     end
@@ -33,6 +40,7 @@ class ActivesController < ApplicationController
 
   # GET /actives/new
   def new
+    @actives = Active.new
     @centers=Center.all.order('name ASC')
     @destination=Destination.all.order('description ASC')
   end
@@ -71,10 +79,10 @@ class ActivesController < ApplicationController
 
   # DELETE /actives/1 or /actives/1.json
   def destroy
-    @active.destroy
+    @active.update(status: false, user_id: 80000403900)
 
     respond_to do |format|
-      format.html { redirect_to actives_url, notice: "Active was successfully destroyed." }
+      format.html { redirect_to actives_url, notice: "El activo fue dado de baja exitosamente." }
       format.json { head :no_content }
     end
   end

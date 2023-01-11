@@ -45,10 +45,10 @@
                     <th>ACCIONES</th>
                   </tr>
                       <div id="centers">
-                        <% @centers.each do |center| %>
+                        <% @centers.order('id asc').each do |center| %>
                           <tr>
                             <td>
-                              <%= center.id%>
+                              <%= center.id %>
                             </td>
                             <td>
                               <%= center.name %>
