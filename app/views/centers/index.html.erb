@@ -45,7 +45,7 @@
                     <th>ACCIONES</th>
                   </tr>
                       <div id="centers">
-                        <% @centers.order('id asc').each do |center| %>
+                        <% @centers.order('zone_id asc').each do |center| %>
                           <tr>
                             <td>
                               <%= center.id %>

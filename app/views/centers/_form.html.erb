@@ -2,7 +2,7 @@
   <% if center.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(center.errors.count, "error") %> prohibited this center from being saved:</h2>
-
+      
       <ul>
         <% center.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -22,7 +22,7 @@
   <div class="mb-3">
       <label class="control-label">Seleccione una Zona: </label>
       <div class= "input-group mb-3 justify-content-center">
-        <%= form.select :zone_id, options_from_collection_for_select(Zone.all, :id, :description) %>
+        <%= form.select :zone_id, options_from_collection_for_select(Zone.all, :id, :description),{}, {class: "form-control"} %>
       </div>
   </div>
 

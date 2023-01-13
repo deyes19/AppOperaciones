@@ -88,6 +88,9 @@
 
 }
 @media(max-width: 650px){
+  p{
+    font-size: 12px !important;
+  }
   .table {
     font-size: 12px !important;
   }
@@ -102,9 +105,11 @@
   }
   a{
     padding: 0px !important;
+    font-size: 12px !important;
   }
   button{
     padding: 0px !important;
+    font-size: 12px !important;
   }
 }
 @media(max-width: 372px){
@@ -113,9 +118,11 @@
   }
   a{
     padding: 0px !important;
+    font-size: 9px !important;
   }
   button{
     padding: 0px !important;
+    font-size: 9px !important;
   }
 }
 footer{

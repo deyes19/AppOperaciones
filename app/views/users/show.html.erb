@@ -15,16 +15,16 @@
           <div class="col text-dark">
             <h3 class="card-title "> REGISTRO DE USUARIOS</h3>
             <p class="text-center">A continuación digita los datos deL Usuario que deseas crear.</p>
-                <div class="centrarcard"><%= render @user %>
+                <div class=""><%= render @user %>
                 
-                
-                </div>
-
                 <ul class="separar d-flex">
                   <li><%= button_to "", @user, method: :delete, :title=>"Eliminar", :class=>"bi bi-trash btn" %></li>
                   <li><%= link_to "", edit_user_path(@user), :title=>"Editar", :class=>" bi bi-pencil-fill btn" %></li>
                   <li><%= link_to "", users_path, :title=>"Regresar a lista de usuarios", :class=>" bi bi-skip-backward-fill btn" %></li>
                 </ul>
+                </div>
+
+           
             </div>
           </div>
         </div>

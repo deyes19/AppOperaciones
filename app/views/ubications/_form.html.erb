@@ -23,7 +23,7 @@
     <%= form.text_field :name, :class=>"form-control border border-info rounded-2" %>
   </div>
   <label class="control-label col-sm-6">Seleccione un Destino: </label>
-  <%= collection_select( :ubication, :destination_id, Destination.all, :id, :description, { prompt: true }) %>
+  <%= collection_select( :ubication, :destination_id, Destination.all, :id, :description, { prompt: true }, {class: "form-control border border-info rounded-2"}) %>
 
 
   <div>
