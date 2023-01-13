@@ -16,24 +16,24 @@
     <div class="row">
   <div class="col align-self-center">
           <div class="mb-3">
-            <%= form.label "Placa del activo", :class=>"form-label fw-bolder ", style: "display: block" %>
+            <%= form.label "Placa del activo", :class=>"form-label", style: "display: block" %>
             <%= form.text_field :plate, :class=>"form-control border border-info rounded-2" %>
           </div>
           <div class="mb-3">
-              <%= form.label "Código de barras del activo", :class=>"form-label fw-bolder ", style: "display: block" %>
+              <%= form.label "Código de barras del activo", :class=>"form-label ", style: "display: block" %>
               <%= form.text_field :barcode, :class=>"form-control border border-info rounded-2" %>
           </div>
         <div class="mb-3">
           <div class="form-group">
               <label class="control-label col-sm-6">Estado? </label><br>
-              <%= form.select :status, [["Activo", true], ["Inactivo", false]], {} %>
+              <%= form.select :status, [["Activo", true], ["Inactivo", false]], {}, {class: "form-control border border-info rounded-2"} %>
           </div>
           <div class ="mb-3">
           <div class="form-group">
             <label class="control-label col-sm-6">Tipo de activo </label>
-            <%= form.select :active_type_id, options_from_collection_for_select(ActiveType.all, :id, :description) %>
+            <%= form.select :active_type_id, options_from_collection_for_select(ActiveType.all, :id, :description),{}, {class: "form-control border border-info rounded-2"} %>
              <label class="control-label col-sm-6">Es padre o hijo?: </label><br>
-            <%= form.select :rankactive_id, options_from_collection_for_select(Rankactive.all, :id, :name) %>
+            <%= form.select :rankactive_id, options_from_collection_for_select(Rankactive.all, :id, :name),{}, {class: "form-control border border-info rounded-2"} %>
           </div>
           </div>
         </div>
@@ -42,30 +42,46 @@
       
         <div class="col align-self-center">
           <div class="mb-3">
-            <%= form.label "Nombre del activo", :class=>"form-label fw-bolder ", style: "display: block" %>
+            <%= form.label "Nombre del activo", :class=>"form-label  ", style: "display: block" %>
             <%= form.text_field :name, :class=>"form-control border border-info rounded-2" %>
           </div>
           <div class="mb-3">
-            <%= form.label "Serial del activo", :class=>"form-label fw-bolder ", style: "display: block" %>
+            <%= form.label "Serial del activo", :class=>"form-label  ", style: "display: block" %>
             <%= form.text_field :serial, :class=>"form-control border border-info rounded-2" %>
           </div> 
+        <div class="mb-3">
+         <div id="centers">
+                    <%= form.label "Centros de costo:", :class=>"form-label  ", style: "display: block" %>
+                    <%= form.select :center, options_from_collection_for_select(@centers, :id, :name, prompt: "Seleciona Centro"),{}, {class: "form-control border border-info rounded-2"} %>
+          </div>
+        </div>
+        <div class="mb-3">  
+          <%= form.label "Destinos", :class=>"form-label", style: "display: block" %>
+          <div id="destinations">
+          
+          </div>
+        </div>
+          
+          <script type="text/javascript">
+          
+            $(document).ready(function() {
+              $('#active_center.form-control').on('change', function() {
+                $.ajax({
+                  url:  "<%= actives_options_path %>",
+                  type: "POST",
+                  data: { center_id: $(this).val() }
+                });
+              });
+            });
+          </script>
 
         <div class="mb-3">
-          <label class="control-label col-sm-6">Definir Destino:</label>
-          <%= form.select :center, options_from_collection_for_select(@centers, :id, :name) %>
-        </div> 
-          
-        <div class="mb-3">
-          <label class="control-label col-sm-6">Definir Destino:</label>
-          <%= form.select :destination_id, options_from_collection_for_select(Destination.all, :id, :description) %>
-        </div>
-        <div class="mb-3">
           <label class="control-label col-sm-6">Definir ubicación:</label>
-          <%= form.select :ubication_id, options_from_collection_for_select(Ubication.all, :id, :name) %>
+          <%= form.select :ubication_id, options_from_collection_for_select(Ubication.all, :id, :name),{}, {class: "form-control"} %>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-6">Responsable</label>
-            <%= form.select :user_id, options_from_collection_for_select(User.all, :id, :name) %>
+            <%= form.select :user_id, options_from_collection_for_select(User.all, :id, :name),{}, {class: "form-control"} %>
         </div>
       </div>
       </div>

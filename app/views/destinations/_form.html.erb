@@ -24,7 +24,7 @@
   <div class="form-group ">
       <label class="form-label">Seleccione un centro de costo: </label>
       <div class= "input-group mb-3 justify-content-center">
-        <%= form.select :center_id, options_from_collection_for_select(Center.all, :id, :name) %>
+        <%= form.select :center_id, options_from_collection_for_select(Center.all, :id, :name), {}, {class: "form-control border border-info rounded-2"} %>
       </div>
     </div>
   </div>

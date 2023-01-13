@@ -1,5 +1,6 @@
 class DestinationsController < ApplicationController
   load_and_authorize_resource
+  
 
   def import
     file = params[:file]
@@ -23,8 +24,9 @@ class DestinationsController < ApplicationController
 
   # GET /zones/new
   def new
-    @destination = Destination.new
+    @centers= Center.all
   end
+
 
   # GET /zones/1/edit
   def edit
@@ -34,7 +36,7 @@ class DestinationsController < ApplicationController
   # POST /zones or /zones.json
   def create
     @destination = Destination.new(destination_params)
-
+    @centers= Center.all
     respond_to do |format|
       if @destination.save
         format.html { redirect_to destinations_path, notice: 'Tu destino se ha creado correctamente', status: :see_other }

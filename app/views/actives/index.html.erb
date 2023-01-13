@@ -40,14 +40,16 @@
         </div>
             <table class="table  table-striped table-hover">
                   <tr class="text-dark">
-                    <th>PLACA DE ACTIVO</th>
-                    <th>C. DE COSTO</th>
-                    <th>NOMBRE</th>
-                    <th>RESPONSABLE</th>
-                    <th>ESTADO</th>
-                    <th>ACCIONES</th>
+                    <th scope="col">PLACA DE ACTIVO</th>
+                    <th scope="col">C. DE COSTO</th>
+                    <th scope="col">NOMBRE</th>
+                    <th scope="col">RESPONSABLE</th>
+                    <th scope="col">ESTADO</th>
+                    <th scope="col">ACCIONES</th>
                   </tr>
+                  
                       <div id="actives">
+                      <div class ="container">
                         <% @actives.each do |active| %>
                           <tr>
                             <td>
@@ -86,6 +88,7 @@
                         <% end %>
                       </div>
             </table> 
+            </div>
       </div>
   </div>
 </div>

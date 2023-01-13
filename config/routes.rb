@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       post :import2
     end
   end
+  post 'actives/options', as: 'actives_options'
   resources :active_types
   resources :suppliers
   resources :kinds
@@ -30,7 +31,7 @@ Rails.application.routes.draw do
       post :import
     end
   end
-  resources :destinos 
+  
   resources :centers do
     collection do
       post :import

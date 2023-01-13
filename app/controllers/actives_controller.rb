@@ -1,6 +1,6 @@
 class ActivesController < ApplicationController
   load_and_authorize_resource
-
+  protect_from_forgery with: :null_session, only: [:create, :update, :destroy]
 
   def import1
     file = params[:file]
@@ -40,19 +40,20 @@ class ActivesController < ApplicationController
 
   # GET /actives/new
   def new
-    @actives = Active.new
-    @centers=Center.all.order('name ASC')
-    @destination=Destination.all.order('description ASC')
+    @centers= Center.all
   end
-
+  def options
+    @destinations = Destination.where(center_id: params[:center_id])
+  end
   # GET /actives/1/edit
   def edit
+    @centers= Center.all
   end
 
   # POST /actives or /actives.json
   def create
     @active = Active.new(active_params)
-
+    @centers= Center.all
     respond_to do |format|
       if @active.save
         format.html { redirect_to actives_path, notice: "el tipo de activo fue creado" }
@@ -66,6 +67,7 @@ class ActivesController < ApplicationController
 
   # PATCH/PUT /actives/1 or /actives/1.json
   def update
+    @centers= Center.all
     respond_to do |format|
       if @active.update(active_params)
         format.html { redirect_to actives_path, notice: "el activo fue actualizado" }
@@ -92,6 +94,6 @@ class ActivesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def active_params
-      params.require(:active).permit(:id, :barcode, :serial, :name, :destination_id, :ubication_id, :plate, :user_id, :rankactive_id, :status, :active_type_id)
+      params.require(:active).permit(:id, :barcode,:center_id, :serial, :name, :destination_id, :ubication_id, :plate, :user_id, :rankactive_id, :status, :active_type_id)
     end
 end

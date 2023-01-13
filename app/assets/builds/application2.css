@@ -81,7 +81,43 @@
     scroll-behavior: smooth;
   }
 }
+@media(max-width: 768px){
+  .table {
+    font-size: 20px !important;
+  }
 
+}
+@media(max-width: 650px){
+  .table {
+    font-size: 12px !important;
+  }
+  label {
+    font-size: 12px !important;
+  }
+  input {
+    font-size: 12px !important;
+  }
+  select {
+    font-size: 12px !important;
+  }
+  a{
+    padding: 0px !important;
+  }
+  button{
+    padding: 0px !important;
+  }
+}
+@media(max-width: 372px){
+  .table {
+    font-size: 9px !important;
+  }
+  a{
+    padding: 0px !important;
+  }
+  button{
+    padding: 0px !important;
+  }
+}
 footer{
   width: 100%;
   bottom: 0;
@@ -690,6 +726,7 @@ progress {
   .container-md, .container-sm, .container {
     max-width: 720px;
   }
+
 }
 @media (min-width: 992px) {
   .container-lg, .container-md, .container-sm, .container {
@@ -10837,6 +10874,7 @@ background: linear-gradient(0deg, rgba(34,193,195,0.3) 0%, rgba(45,115,253,0.1) 
     font-size: 1.5rem !important;
   }
 }
+
 @media print {
   .d-print-inline {
     display: inline !important;
