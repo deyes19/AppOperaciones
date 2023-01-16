@@ -85,6 +85,10 @@
   .table {
     font-size: 20px !important;
   }
+  .tam-card-personal{
+    height: 90% !important;
+    width: 90% !important;
+  }
 
 }
 @media(max-width: 650px){
@@ -111,10 +115,18 @@
     padding: 0px !important;
     font-size: 12px !important;
   }
+  .tam-card-personal{
+    height: 100% !important;
+    width: 100% !important;
+  }
 }
 @media(max-width: 372px){
   .table {
     font-size: 9px !important;
+  }
+  .tam-card-personal{
+    height: 100% !important;
+    width: 100% !important;
   }
   a{
     padding: 0px !important;
@@ -8256,8 +8268,8 @@ textarea.form-control-lg {
 background: linear-gradient(0deg, rgba(34,193,195,0.3) 0%, rgba(45,115,253,0.1) 100%);
 }
 .tam-card-personal{
-  height: 60%;
-  width: 50%;
+  height: 70%;
+  width: 70%;
 }
 .bg-black {
   --bs-bg-opacity: 1;
