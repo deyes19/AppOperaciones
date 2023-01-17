@@ -86,15 +86,38 @@
                 $.ajax({
                   url:  "<%= actives_options_path %>",
                   type: "POST",
-                  data: { center_id: $(this).val() }
+                  data: { center_id: $(this).val() },
+                  success: function(data){
+                    $('#active_destination_id.form-control').on('change', function() {
+                         $.ajax({
+                          url:  "<%= actives_optionss_path %>",
+                          type: "POST",
+                          data: { destination_id: $(this).val() },
+                        });
+                  });
+                  }
                 });
               });
             });
           </script>
 
         <div class="mb-3">
-          <label class="form-label ">Definir ubicación:</label>
-          <%= form.select :ubication_id, options_from_collection_for_select(Ubication.all, :id, :name),{}, {class: "form-control"} %>
+          <label class="form-label ">Definir ubicacion:</label>
+          <div id="ubications">
+          </div>
+
+          <script type="text/javascript">
+          
+              $(document).ready(function() {
+                $('#active_.form-control').on('change', function() {
+                  $.ajax({
+                    url:  "<%= actives_optionss_path %>",
+                    type: "POST",
+                    data: { destination_id: $(this).val() }
+                  });
+                });
+              });
+          </script>
         </div>
         
       </div>

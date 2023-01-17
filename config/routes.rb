@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     end
   end
   post 'actives/options', as: 'actives_options'
+  post 'actives/optionss', as: 'actives_optionss'
+
   resources :active_types
   resources :suppliers
   resources :kinds

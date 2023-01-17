@@ -45,6 +45,10 @@ class ActivesController < ApplicationController
   def options
     @destinations = Destination.where(center_id: params[:center_id])
   end
+  def optionss
+    @ubications = Ubication.where(destination_id: params[:destination_id])
+  end
+
   # GET /actives/1/edit
   def edit
     @centers= Center.all

@@ -1,2 +1,2 @@
-var html = "<%= j(collection_select(:active, :destination_id, Destination.where(center_id: params[:center_id]), :id, :description, {}, {class: "form-control"})) %>";
-$('#destinations').html(html);  
+var html = "<%= j(collection_select(:active, :destination_id, Destination.where(center_id: params[:center_id]), :id, :description, {prompt: "Selecciona un destino"}, {class: "form-control"})) %>";
+$('#destinations').html(html);

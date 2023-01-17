@@ -1,0 +1,2 @@
+var html = "<%= j(collection_select(:active, :ubication_id, Ubication.where(destination_id: params[:destination_id]), :id, :name, {}, {class: "form-control"})) %>";
+$('#ubications').html(html);
