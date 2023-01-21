@@ -93,6 +93,11 @@ class ActivesController < ApplicationController
     end
   end
 
+  def erase
+    active = Active.find(params[:id])
+    active.destroy
+    redirect_to actives_path, notice: 'Tu activo se ha eliminado correctamente', status: :see_other
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
 

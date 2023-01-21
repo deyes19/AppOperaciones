@@ -33,7 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_11_161557) do
     t.boolean "status"
     t.integer "plate"
     t.bigint "rankactive_id", null: false
-    t.index ["active_type_id", "plate"], name: "index_actives_on_active_type_id_and_plate", unique: true
+    t.index ["active_type_id", "plate"], name: "index_actives_on_active_type_id_and_plate"
     t.index ["active_type_id"], name: "index_actives_on_active_type_id"
     t.index ["destination_id"], name: "index_actives_on_destination_id"
     t.index ["rankactive_id"], name: "index_actives_on_rankactive_id"

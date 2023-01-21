@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       post :import2
     end
   end
+  delete 'actives/:plate', to: 'actives#erase'
   post 'actives/options', as: 'actives_options'
   post 'actives/optionss', as: 'actives_optionss'
 

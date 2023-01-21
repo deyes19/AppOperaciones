@@ -73,9 +73,10 @@
                             </td>
                             <td>
                               <i class="separar">
-                              
+
                                 <%= link_to "", active, :class=>"bi bi-eye-fill text-dark btn" %>
                                 <% if can? :edit, Active %>
+                                <%= button_to "", active, method: :erase, :class=>"bi bi-trash  text-dark btn", :data=>{turbo_confirm:'Estás seguro?'}%>
                                 <%= link_to "", edit_active_path(active), :title=>"Editar", :class=>" bi bi-pencil-fill text-dark btn" %>
                                 <% end %>
                               </i>
