@@ -82,9 +82,7 @@ class ActivesController < ApplicationController
       end
     end
   end
-
-  # DELETE /actives/1 or /actives/1.json
-  def destroy
+  def down
     @active.update(status: false, user_id: 80000403900)
 
     respond_to do |format|
@@ -92,12 +90,15 @@ class ActivesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  def erase
+  # DELETE /actives/1 or /actives/1.json
+  def destroy
     active = Active.find(params[:id])
     active.destroy
-    redirect_to actives_path, notice: 'Tu activo se ha eliminado correctamente', status: :see_other
+    redirect_to actives_path, notice: 'Tu producto se ha eliminado correctamente', status: :see_other
   end
+
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
 

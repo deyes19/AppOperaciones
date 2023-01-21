@@ -12,14 +12,17 @@ Rails.application.routes.draw do
     end
   end
   root "actives#index"
+  patch 'actives/:id', to: 'actives#down'
+  delete 'actives/:id', to: 'actives#destroy'
   resources :actives do
+    
     collection do
       get 'not_active'
       post :import1
       post :import2
     end
   end
-  delete 'actives/:plate', to: 'actives#erase'
+  
   post 'actives/options', as: 'actives_options'
   post 'actives/optionss', as: 'actives_optionss'
 
