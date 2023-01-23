@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_11_161557) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_21_164401) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,6 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_11_161557) do
     t.boolean "status"
     t.integer "plate"
     t.bigint "rankactive_id", null: false
+    t.string "dad"
     t.index ["active_type_id", "plate"], name: "index_actives_on_active_type_id_and_plate"
     t.index ["active_type_id"], name: "index_actives_on_active_type_id"
     t.index ["destination_id"], name: "index_actives_on_destination_id"

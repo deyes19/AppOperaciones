@@ -2,4 +2,5 @@
 import "@hotwired/turbo-rails"
 import "./controllers";
 //= require jquery
+//= require bootstrap
 //import * as bootstrap from "bootstrap"import * as bootstrap from "bootstrap"

@@ -41,6 +41,7 @@ class ActivesController < ApplicationController
   # GET /actives/new
   def new
     @centers= Center.all
+    @active=Active.new
   end
   def options
     @destinations = Destination.where(center_id: params[:center_id])
@@ -104,6 +105,6 @@ class ActivesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def active_params
-      params.require(:active).permit(:id, :barcode,:center_id, :serial, :name, :destination_id, :ubication_id, :plate, :user_id, :rankactive_id, :status, :active_type_id)
+      params.require(:active).permit(:id, :barcode,:center_id, :serial, :name, :dad, :destination_id, :ubication_id, :plate, :user_id, :rankactive_id, :status, :active_type_id)
     end
 end

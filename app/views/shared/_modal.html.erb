@@ -1,0 +1,38 @@
+                    <div class="modal" id="myModal">
+                      
+                       <div class="modal-dialog modal-dialog-centered ">
+                        <div class="modal-content bg-modal-personal">
+                          <div class="modal-header">
+                            <h1 class="modal-title text-white fs-5" id="exampleModalToggleLabel">Pistolea el código de barras</h1>
+                          <button type="button" class="btn-close data-dismiss" aria-label="Close"></button>
+                          <script>
+                            
+                          </script>
+                          </div>
+                          <div class="modal-body">
+                            <form>
+                                <input type="text" class="form-control border border-info rounded-2" id="barcode-input">
+                                <div class="modal-footer">
+                                  <button class= "btn" id="save-barcode">Registrar</button>
+                                </div>
+                            </form>
+                          </div>
+
+                        </div>
+                    </div>
+                      <script>
+                          var selectedInput = document.querySelector('.open-modal-button');
+                          document.querySelector('.open-modal-button').addEventListener('click', function() {
+                            document.querySelector('#myModal').setAttribute("style", "display: block;");
+                          });
+                          document.querySelector('.btn-close').addEventListener('click', function() {
+                              document.querySelector('#myModal').setAttribute("style", "display: none;");
+                            });
+                          document.querySelector('#save-barcode').addEventListener('click', function(e) {
+                            e.preventDefault();
+                            var barcode = document.querySelector('#barcode-input').value;
+                            // aqui se puede guardar el barcode en algun lugar
+                            selectedInput.value = barcode
+                            document.querySelector('#myModal').setAttribute("style", "display: none;");
+                          });
+                      </script>
