@@ -77,7 +77,7 @@
                               
                                 <%= link_to "", active, :class=>"bi bi-eye-fill text-dark btn" %>
                                 <% if can? :destroy, Active %>
-                                <%= button_to "", active_path(active), method: :patch, :title=>"Dar de baja", class: "text-dark bi bi-arrow-down btn" %>
+                                <%= button_to "", actives_down_status_path(active), method: :patch, :title=>"Dar de baja", class: "text-dark bi bi-arrow-down btn" %>
                                 <% end %>
                                 <% if can? :edit, Active %>
                                 <%= link_to "", edit_active_path(active), :title=>"Editar", :class=>" bi bi-pencil-fill text-dark btn" %>

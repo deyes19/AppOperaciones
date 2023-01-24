@@ -12,7 +12,8 @@ Rails.application.routes.draw do
     end
   end
   root "actives#index"
-  patch 'actives/:id', to: 'actives#down'
+  patch 'actives/:id', to: 'actives#update'
+  patch 'actives/:id/status', to: 'actives#down', as:'actives_down_status'
   delete 'actives/:id', to: 'actives#destroy'
   resources :actives do
     

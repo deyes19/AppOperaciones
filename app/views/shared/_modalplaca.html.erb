@@ -1,0 +1,38 @@
+                     <div class="modal" id="myModal2">
+                      
+                       <div class="modal-dialog modal-dialog-centered ">
+                        <div class="modal-content bg-modal-personal">
+                          <div class="modal-header">
+                            <h1 class="modal-title text-white fs-5" id="exampleModalToggleLabel">Pistolea el código de barras</h1>
+                          <button type="button" class="btn-close data-dismiss" aria-label="Close"></button>
+                          <script>
+                            
+                          </script>
+                          </div>
+                          <div class="modal-body">
+                            <form>
+                                <input type="text" class="form-control border border-info rounded-2" id="plate-input">
+                                <div class="modal-footer">
+                                  <button class= "btn" id="save-plate">Registrar</button>
+                                </div>
+                            </form>
+                          </div>
+
+                        </div>
+                    </div>
+                      <script>
+                          var selectedInput2 = document.querySelector('.open-modal-button2');
+                          document.querySelector('.open-modal-button2').addEventListener('click', function() {
+                            document.querySelector('#myModal2').setAttribute("style", "display: block;");
+                          });
+                          document.querySelector('.btn-close').addEventListener('click', function() {
+                              document.querySelector('#myModal2').setAttribute("style", "display: none;");
+                            });
+                          document.querySelector('#save-plate').addEventListener('click', function(e) {
+                            e.preventDefault();
+                            var plate = document.querySelector('#plate-input').value;
+                            // aqui se puede guardar el plate en algun lugar
+                            selectedInput2.value = plate
+                            document.querySelector('#myModal2').setAttribute("style", "display: none;");
+                          });
+                      </script>

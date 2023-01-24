@@ -73,24 +73,31 @@ class ActivesController < ApplicationController
   # PATCH/PUT /actives/1 or /actives/1.json
   def update
     @centers= Center.all
-    respond_to do |format|
-      if @active.update(active_params)
-        format.html { redirect_to actives_path, notice: "el activo fue actualizado" }
-        format.json { render :show, status: :ok, location: @active }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @active.errors, status: :unprocessable_entity }
+    if params[:status].present?
+      down
+    else
+      respond_to do |format|
+        if @active.update(active_params)
+          format.html { redirect_to actives_path, notice: "el activo fue actualizado" }
+          format.json { render :show, status: :ok, location: @active }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @active.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
+  
   def down
-    @active.update(status: false, user_id: 80000403900)
-
+    @active.toggle(:status)
+    @active.user_id = 80000403900
+    @active.save
     respond_to do |format|
-      format.html { redirect_to actives_url, notice: "El activo fue dado de baja exitosamente." }
+      format.html { redirect_to actives_url, notice: "El estado del activo fue actualizado exitosamente." }
       format.json { head :no_content }
     end
   end
+
   # DELETE /actives/1 or /actives/1.json
   def destroy
     active = Active.find(params[:id])
