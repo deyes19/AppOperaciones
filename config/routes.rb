@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   resources :rankactives
+  get '/search_active', to: 'users#search_active', as: 'search_active'
   devise_for :users
   scope '/admin' do
     resources :users
+    
   end
   resources :roles
   resources :users

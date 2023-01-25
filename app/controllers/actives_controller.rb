@@ -1,7 +1,7 @@
 class ActivesController < ApplicationController
   load_and_authorize_resource
   protect_from_forgery with: :null_session, only: [:create, :update, :destroy]
-
+  before_action :authorize_admin, only: [:index, :create, :update, :destroy]
   def import1
     file = params[:file]
     return redirect_to actives_path, notice: 'Sólo se admite formato de separación de comas (.CSV)' unless file.content_type == 'text/csv'
@@ -32,6 +32,10 @@ class ActivesController < ApplicationController
     if params[:query_text].present?
       @actives = @actives.search_full_text(params[:query_text])
     end
+  end
+
+  def authorize_admin
+    redirect_to user_path(current_user), alert: "No tienes acceso a esta sección" unless current_user.admin?
   end
 
   # GET /actives/1 or /actives/1.json
