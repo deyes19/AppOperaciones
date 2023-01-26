@@ -16,16 +16,23 @@
     <div class="row row-cols-3">
       <div class="col">
               <div class="mb-3">
-                <%= form.label "Placa del activo", :class=>"form-label", style: "display: block" %>
-                <%= form.text_field :plate, :class=>"form-control border border-info rounded-2" %>
+              <div class="form-group">
+                <%= form.label "Placa del activo", :class=>"form-label" %>
+                <%= form.text_field :plate, :class=>"form-control border border-info rounded-2 open-modal-button2" %>
+                <%= render 'shared/modalplaca' %>
+              </div>
               </div>
               <div class="mb-3">
+              <div class="form-group">
                 <%= form.label "Nombre del activo", :class=>"form-label  ", style: "display: block" %>
-                <%= form.text_field. :name, :class=>"form-control border border-info rounded-2" %>
+                <%= form.text_field :name, :class=>"form-control border border-info rounded-2" %>
+              </div>
               </div>
               <div class="mb-3">
+              <div class="form-group">
                 <%= form.label "Serial del activo", :class=>"form-label  ", style: "display: block" %>
                 <%= form.text_field :serial, :class=>"form-control border border-info rounded-2" %>
+              </div>
               </div> 
               <div class ="mb-3">
                 <div class="form-group">
@@ -34,37 +41,35 @@
                 </div>
               </div>
 
+        </div>
       </div>
-  <div class="col">
-          
-
-        <div class="mb-3">
+      <div class="col">
+        <div class="">
           <div class="form-group">
-              <label class="form-label">Estado? </label><br>
+              <label class="form-label">Estado? </label>
               <%= form.select :status, [["Activo", true], ["Inactivo", false]], {}, {class: "form-control border border-info rounded-2"} %>
           </div>
         </div>
           
-          <div class ="mb-3">
+        <div class ="mb-3">
           <div class="form-group">  
-             <label class="form-label">Es padre o hijo?: </label><br>
+             <label class="form-label">Es padre o hijo?: </label>
             <%= form.select :rankactive_id, options_from_collection_for_select(Rankactive.all, :id, :name),{}, {class: "form-control border border-info rounded-2"} %>
           </div>
-          </div>
-          <div class ="mb-3">
+        </div>
+        <div class ="mb-3">
             <div class="form-group">  
-             <label class="form-label">Padre </label><br>
+              <label class="form-label">Padre </label>
               <%= form.text_field :dad, :class=>"form-control border border-info rounded-2", id: "dad" %>
             </div>
-          </div>
-      
+        </div>
+        <div class ="">
           <div class="form-group">
             <label class="form-label">Responsable</label>
             <%= form.select :user_id, options_from_collection_for_select(User.all, :id, :name),{}, {class: "form-control border border-info rounded-2"} %>
-            
+          </div>
         </div>
-        
-  </div>
+      </div>
       
         <div class="col">
           
@@ -74,60 +79,46 @@
                   <%= render 'shared/modal' %>
               </div>
           
-        <div class="mb-3">
-         <div id="centers">
+              <div class="mb-3">
+                <div id="centers">
                     <%= form.label "Centros de costo:", :class=>"form-label  ", style: "display: block" %>
                     <%= form.select :center, [['Escoja el centro de costo', nil]] + @centers.collect {|center| [center.name, center.id]},{}, {class: "form-control border border-info rounded-2"} %>
-
-          </div>
-        </div>
-        <div class="mb-3">  
-          <%= form.label "Destinos", :class=>"form-label", style: "display: block" %>
-          <div id="destinations">
+                </div>
+              </div>
+              <div class="mb-3">  
+                <%= form.label "Destinos", :class=>"form-label", style: "display: block" %>
+                <div id="destinations">
+                
+                </div>
+              </div>
           
-          </div>
-        </div>
-          
-          <script type="text/javascript">
-          
-            $(document).ready(function() {
-              $('#active_center.form-control').on('change', function() {
-                $.ajax({
-                  url:  "<%= actives_options_path %>",
-                  type: "POST",
-                  data: { center_id: $(this).val() },
-                  success: function(data){
-                    $('#active_destination_id.form-control').on('change', function() {
-                         $.ajax({
-                          url:  "<%= actives_optionss_path %>",
-                          type: "POST",
-                          data: { destination_id: $(this).val() },
-                        });
-                  });
-                  }
-                });
-              });
-            });
-          </script>
-
-        <div class="mb-3">
-          <label class="form-label ">Definir ubicacion:</label>
-          <div id="ubications">
-          </div>
-
-          <script type="text/javascript">
-          
-              $(document).ready(function() {
-                $('#active_.form-control').on('change', function() {
-                  $.ajax({
-                    url:  "<%= actives_optionss_path %>",
-                    type: "POST",
-                    data: { destination_id: $(this).val() }
+              <script type="text/javascript">
+              
+                $(document).ready(function() {
+                  $('#active_center.form-control').on('change', function() {
+                    $.ajax({
+                      url:  "<%= actives_options_path %>",
+                      type: "POST",
+                      data: { center_id: $(this).val() },
+                      success: function(data){
+                        $('#active_destination_id.form-control').on('change', function() {
+                            $.ajax({
+                              url:  "<%= actives_optionss_path %>",
+                              type: "POST",
+                              data: { destination_id: $(this).val() },
+                            });
+                      });
+                      }
+                    });
                   });
                 });
-              });
-          </script>
-        </div>
+              </script>
+
+            <div class="mb-3">
+              <label class="form-label ">Definir ubicacion:</label>
+                <div id="ubications">
+                </div>           
+            </div>
         
       </div>
       </div>
