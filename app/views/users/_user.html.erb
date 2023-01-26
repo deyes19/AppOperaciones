@@ -46,7 +46,7 @@
 
   <div class="actives" id="myDIV">
                 <% @actives.each do |active| %>
-                <%= link_to active do %>
+                <%= link_to active, style: "text-decoration: none;"  do %>
                 <div class="active clearfix" id="clearf" data-toggle="tooltip" title="Clic para mas información de este punto de venta">
                     <div class="active-details">
                       <table class="table  table-striped table-hover text-dark">
