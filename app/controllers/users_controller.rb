@@ -31,6 +31,7 @@ class UsersController < ApplicationController
       flash.now[:alert] = "No se encontró ningún activo con esa placa"
       @actives = []
     end
+    render 'search_active'
   end
   # GET /users/new
   def new

@@ -37,32 +37,34 @@
   
     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
       <h4>Activos asociados a <%= @user.name %></h4>
-      <%= form_tag search_active_path, method: :get do %>
-        <%= label_tag :plate, "Ingrese la placa del activo:" %>
-        <%= text_field_tag :plate, params[:plate] %>
-        <%= submit_tag "Buscar", class: "btn btn-primary" %>
-      <% end %>
-      <table class="table  table-striped table-hover text-dark">
-        <tr class="text-dark">
-          <th>Placa</th>
-          <th>Nombre</th>
-          <th>Estado</th>
-        </tr>
-        <% @actives.each do |active| %>
-        <tr>
-          <td>
-            <%= active.plate %>
-          </td>
-          <td>
-            <%= active.name %>
-          </td>
-          <td>
-            <%= active.status %>
-          </td>
-        </tr>
-        <% end %>
-      </table>
-    </div>
+      <form class="" role="search" data-toggle="tooltip" title="Buscar activo asociado">
+          <div class="form-group">
+              <input class="form-control" id="myInput" type="text" placeholder="Buscar activo asociado">
+          </div>
+      </form>
+
+
+  <div class="actives table table-striped table-hover text-dark" id="myDIV">
+                <% @actives.each do |active| %>
+                <%= link_to active do %>
+                <div class="active clearfix" id="clearf" data-toggle="tooltip" title="Clic para mas información de este punto de venta">
+                    <div class="active-details">
+                        <span class="active-nombre"><b> COD:</b><%= active.plate %>,<b> NOMBRE:</b> <%= active.name %>, Estado: <% %> </span>
+                    </div>
+                </div>
+                <% end %>
+                <% end %>
+  </div>
+      <script>
+        
+        $("#myInput.form-control").on("keyup", function () {
+          var value = $(this).val().toLowerCase();
+          $("#myDIV *").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+          });
+        });
+      
+      </script>
 
     <% if can? :edit, Active %>
       <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
