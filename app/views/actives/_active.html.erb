@@ -9,6 +9,10 @@
                     <td><%= active.plate %></td>
                   </tr>
                   <tr>
+                    <th>PLACA DEL PADRE</th>
+                    <td><%= active.dad %></td>
+                  </tr>
+                  <tr>
                     <th>TIPO DE ACTIVO</th>
                     <td><% a=ActiveType.find(active.active_type_id) %>
                               <%= a.description %></td>

@@ -1,0 +1,33 @@
+<div class="modal" id="myModal3">
+                      
+                       <div class="modal-dialog modal-dialog-centered ">
+                        <div class="modal-content bg-modal-personal">
+                          <div class="modal-header">
+                            <h1 class="modal-title text-white fs-5" id="exampleModalToggleLabel">Pistolea el código de barras del padre</h1>                          </div>
+                          <div class="modal-body">
+                            <form>
+                                <input type="number" class="form-control border border-info rounded-2" id="dad-input">
+                                <div class="modal-footer">
+                                  <button class= "btn" id="save-dad">Registrar</button>
+                                </div>
+                            </form>
+                          </div>
+
+                        </div>
+                    </div>
+                      <script>
+                          var selectedInput3 = document.querySelector('.open-modal-button3');
+                          document.querySelector('.open-modal-button3').addEventListener('click', function() {
+                            document.querySelector('#myModal3').setAttribute("style", "display: block;");
+                          });
+                          document.querySelector('.btn-close').addEventListener('click', function() {
+                              document.querySelector('#myModal3').setAttribute("style", "display: none;");
+                            });
+                          document.querySelector('#save-dad').addEventListener('click', function(e) {
+                            e.preventDefault();
+                            var dad = document.querySelector('#dad-input').value;
+                            // aqui se puede guardar el dad en algun lugar
+                            selectedInput3.value = dad
+                            document.querySelector('#myModal3').setAttribute("style", "display: none;");
+                          });
+                      </script>

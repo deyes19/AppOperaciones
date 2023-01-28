@@ -62,6 +62,7 @@ class ActivesController < ApplicationController
   # POST /actives or /actives.json
   def create
     @active = Active.new(active_params)
+    @active.plate = @active.barcode
     @centers= Center.all
     respond_to do |format|
       if @active.save
@@ -77,6 +78,7 @@ class ActivesController < ApplicationController
   # PATCH/PUT /actives/1 or /actives/1.json
   def update
     @centers= Center.all
+    @active.plate = @active.barcode
     if params[:status].present?
       down
     else
@@ -116,6 +118,6 @@ class ActivesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def active_params
-      params.require(:active).permit(:id, :barcode,:center_id, :serial, :name, :dad, :destination_id, :ubication_id, :plate, :user_id, :rankactive_id, :status, :active_type_id)
+      params.require(:active).permit(:id, :barcode,:center_id, :serial, :name, :dad, :destination_id, :ubication_id, :plate , :user_id, :rankactive_id, :status, :active_type_id)
     end
 end

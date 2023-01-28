@@ -15,12 +15,14 @@
 <div class="form-control bg-card-personal">
     <div class="row row-cols-3">
       <div class="col">
+              
+                        
               <div class="mb-3">
-              <div class="form-group">
-                <%= form.label "Placa del activo", :class=>"form-label" %>
-                <%= form.text_field :plate, :class=>"form-control border border-info rounded-2 open-modal-button2" %>
-                <%= render 'shared/modalplaca' %>
-              </div>
+                <div class="form-group">
+                  <%= form.label "Código de barras del activo", :class=>"form-label ", style: "display: block" %>
+                  <%= form.text_field :barcode, :class=>"form-control border border-info rounded-2 open-modal-button" %>
+                  <%= render 'shared/modal' %>
+                </div>
               </div>
               <div class="mb-3">
               <div class="form-group">
@@ -54,15 +56,29 @@
         <div class ="mb-3">
           <div class="form-group">  
              <label class="form-label">Es padre o hijo?: </label>
-            <%= form.select :rankactive_id, options_from_collection_for_select(Rankactive.all, :id, :name),{}, {class: "form-control border border-info rounded-2"} %>
+             <% @rankactives = Rankactive.all %>
+            <%= form.select :rankactive_id, [['Selecciona si es padre o hijo', nil]] + @rankactives.collect {|rankactive| [rankactive.name, rankactive.id]},{}, {class: "form-control border border-info rounded-2", id: "rankactive_select"} %>
           </div>
         </div>
+        <script>
+          $(document).ready(function(){
+            $("#rankactive_select").change(function(){
+               if(($(this).find(':selected').text() == "HIJO")){
+                  $("#dad_input").prop("disabled", false);
+                }else{
+                  $("#dad_input").prop("disabled", true);
+                }
+              });
+          })
+        </script>
         <div class ="mb-3">
             <div class="form-group">  
               <label class="form-label">Padre </label>
-              <%= form.text_field :dad, :class=>"form-control border border-info rounded-2", id: "dad" %>
+                <%= form.number_field :dad, :class=>"form-control border border-info rounded-2 open-modal-button3", id: "dad_input" %>
+                  <%= render 'shared/modalpadre' %>
             </div>
         </div>
+
         <div class ="">
           <div class="form-group">
             <label class="form-label">Responsable</label>
@@ -70,14 +86,10 @@
           </div>
         </div>
       </div>
+      </div>
       
         <div class="col">
-          
-              <div class="mb-3">
-                  <%= form.label "Código de barras del activo", :class=>"form-label ", style: "display: block" %>
-                  <%= form.text_field :barcode, :class=>"form-control border border-info rounded-2 open-modal-button" %>
-                  <%= render 'shared/modal' %>
-              </div>
+
           
               <div class="mb-3">
                 <div id="centers">
@@ -122,17 +134,17 @@
         
       </div>
       </div>
+    <i class= "separar d-flex bi">
+      <span class="">
+        <%= button_tag(:type => 'submit', :title=>'Actualiza los datos', :class => 'bi bi-arrow-counterclockwise text-dark btn') do %>
+        <% end %>
+          
+      </span>
+        <%= link_to "", actives_path, :class=>"bi bi-skip-backward-btn-fill text-dark btn", :title=>'Retornar a las zonas' %>
+    </i>
     </div>
   </div>
-    <i class= "separar d-flex bi">
-          <span class="">
-            <%= button_tag(:type => 'submit', :title=>'Actualiza los datos', :class => 'bi bi-arrow-counterclockwise text-dark btn') do %>
-              <i class="icon-up-arrow icon-white"></i>
-            <% end %>
-            
-        </span>
-          <%= link_to "", actives_path, :class=>"bi bi-skip-backward-btn-fill text-dark btn", :title=>'Retornar a los activos' %>
-        </i>
+
          </div>
  </div>
  </div>
