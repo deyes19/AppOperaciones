@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  before_save :uppercase_fields
   include PgSearch::Model
   pg_search_scope :search_full_text, against: {
     name: 'A',
@@ -21,6 +22,10 @@ class User < ApplicationRecord
   end
   def regular?
     role.name == 'Regular'
+  end
+  private
+  def uppercase_fields
+      self.name.upcase!
   end
   
 end

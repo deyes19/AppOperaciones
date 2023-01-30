@@ -14,9 +14,9 @@
                       <% parent_active = Active.find_by(rankactive_id: 7) %>
                       <% if parent_active %>
                         <% active.dad = parent_active.plate %>
-                        <td><%= link_to "ir al padre", parent_active %></td>
+                        <td><%= link_to " ", parent_active, :class=>"fa-solid fa-magnifying-glass text-dark btn", title: "ver datos del padre" %></td>
                       <% else %>
-                        <td>No se ha encontrado un activo con rankactive_id = 8</td>
+                        ...
                       <% end %>
                     <% else %>
                       <td>No tiene padre</td>
