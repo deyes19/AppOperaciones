@@ -1,4 +1,4 @@
-class ActiveType < ApplicationRecordprivate
+class ActiveType < ApplicationRecord
     before_save :uppercase_fields
    
     

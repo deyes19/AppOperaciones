@@ -12,6 +12,7 @@ class Active < ApplicationRecord
     validates :plate, uniqueness: { scope: :rankactive_id, notice: "Ya existe para este padre." }
     validates :destination_id, presence: true
     validates :ubication_id, presence: true
+  
   private
 
   def uppercase_fields
