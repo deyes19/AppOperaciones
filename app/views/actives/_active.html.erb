@@ -10,7 +10,17 @@
                   </tr>
                   <tr>
                     <th>PLACA DEL PADRE</th>
-                    <td><%= active.dad %></td>
+                    <% if active.rankactive_id == 8 %>
+                      <% parent_active = Active.find_by(rankactive_id: 7) %>
+                      <% if parent_active %>
+                        <% active.dad = parent_active.plate %>
+                        <td><%= link_to "ir al padre", parent_active %></td>
+                      <% else %>
+                        <td>No se ha encontrado un activo con rankactive_id = 8</td>
+                      <% end %>
+                    <% else %>
+                      <td>No tiene padre</td>
+                    <% end %>
                   </tr>
                   <tr>
                     <th>TIPO DE ACTIVO</th>
