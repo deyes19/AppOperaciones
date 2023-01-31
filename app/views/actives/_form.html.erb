@@ -1,15 +1,10 @@
 <%= form_with model: @active, remote: true do |form| %>
-  <% if active.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(active.errors.count, "error") %> prohibited this active from being saved:</h2>
-
-      <ul>
-        <% active.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<% if active.errors.any? %>
+  <% flash[:error] = "Han ocurrido un total de: #{pluralize(active.errors.count, "error(es)")}, en la creación del activo:" %>
+    <% active.errors.full_messages.each do |message| %>
+      <% flash[:error] << message %>
+    <% end %>
+<% end %>
 <div class="container">
   <!--Se agrega campo para asignarle manualmente el ID a cada registro-->
 <div class="form-control bg-card-personal">

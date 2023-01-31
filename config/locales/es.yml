@@ -1,10 +1,9 @@
-es: 
+es:
   app_name: 'AppOperaciones'
   devise:
     sessions:
       user:
         signed_in: 'Ingresaste exitosamente al aplicativo'
-  meta_title: 'Aplicativo de activo fijo'
   activerecord:
     models:
       active: Activo
@@ -43,6 +42,8 @@ es:
         password: 'contraseña'
         role: 'rol'
         name: 'nombre'
-    
+  actives:
+    create:
+      error: 'Ha ocurrido un error al crear el activo, revisa no haber dejado ningun campo en blanco'
     
   

@@ -109,6 +109,7 @@ es:
   errors:
     format: "%{attribute} %{message}"
     messages:
+      model_invalid: "Falló la validación: %{errors}"
       accepted: debe ser aceptado
       blank: no puede estar en blanco
       confirmation: no coincide
@@ -139,11 +140,6 @@ es:
       wrong_length:
         one: no tiene la longitud correcta (1 carácter exactos)
         other: no tiene la longitud correcta (%{count} caracteres exactos)
-    template:
-      body: 'Se encontraron problemas con los siguientes campos:'
-      header:
-        one: No se pudo guardar este/a %{model} porque se encontró 1 error
-        other: No se pudo guardar este/a %{model} porque se encontraron %{count} errores
   helpers:
     select:
       prompt: Por favor seleccione
@@ -217,3 +213,4 @@ es:
       long: "%-d de %B de %Y %H:%M"
       short: "%-d de %b %H:%M"
     pm: pm
+  

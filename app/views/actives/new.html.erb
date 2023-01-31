@@ -1,3 +1,13 @@
+<% flash.each do |type, message| %>
+  <div class="flash <%= type %> alert alert-danger">
+    <%= message %>
+  </div>
+  
+<% end %>
+
+
+
+
 <div class ="container tam-card-personal">
   <div class="row">
       <div class="col md-8">

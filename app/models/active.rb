@@ -7,12 +7,13 @@ class Active < ApplicationRecord
     barcode: 'B',
     plate: 'A',
   }
-    belongs_to :destination
-    belongs_to :ubication
+
     validates :plate, uniqueness: { scope: :rankactive_id, notice: "Ya existe para este padre." }
-    validates :destination_id, presence: true
-    validates :ubication_id, presence: true
-  
+    validates :destination_id, presence: { message: "El destino es requerido." }
+    validates :ubication_id, presence: { message: "La ubicación es requerida." }
+    validates :user_id, presence: { message: 'Se necesita asignar un responsable. '}
+    validates :barcode, presence: { message: 'se necesita que digites o pistolees la placa.- '}
+    validates :rankactive_id, presence: { message: 'Se necesita especificar si es un padre o un hijo.  '}
   private
 
   def uppercase_fields

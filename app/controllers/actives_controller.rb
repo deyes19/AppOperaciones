@@ -66,14 +66,15 @@ class ActivesController < ApplicationController
     @centers= Center.all
     respond_to do |format|
       if @active.save
-        format.html { redirect_to actives_path, notice: "el tipo de activo fue creado" }
+        format.html { redirect_to actives_path, notice: "el activo fue creado" }
         format.json { render :show, status: :created, location: @active }
       else
+        flash[:error] = "No se pudo crear el activo. Verifique los datos e intente nuevamente. Revisa que hayas seleccionado la ubicación y el destino"
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @active.errors, status: :unprocessable_entity }
       end
     end
-  end
+  end  
 
   # PATCH/PUT /actives/1 or /actives/1.json
   def update
