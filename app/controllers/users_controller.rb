@@ -46,10 +46,10 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to user_url(@user), notice: "User was successfully created." }
+        format.html { redirect_to user_url(@user), notice: "se creó exitosamente." }
         format.json { render :show, status: :created, location: @user }
       else
-        format.html { redirect_to user_path, notice: "El usuario no ha sido creado, revise si existe un usuario con el mismo correo"}
+        format.html { render :new, status: :unprocessable_entity}
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
@@ -69,7 +69,7 @@ class UsersController < ApplicationController
                            end
   
     if successfully_updated
-      redirect_to @user, notice: 'User was successfully updated.'
+      redirect_to @user, notice: 'UsEl usuario fue actualizado'
     else
       render :edit
     end
@@ -80,7 +80,7 @@ class UsersController < ApplicationController
     @user.destroy
 
     respond_to do |format|
-      format.html { redirect_to users_url, notice: "User was successfully destroyed." }
+      format.html { redirect_to users_url, notice: "Has eliminado al usuario correctamente" }
       format.json { head :no_content }
     end
   end

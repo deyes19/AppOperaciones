@@ -1,0 +1,48 @@
+es: 
+  app_name: 'AppOperaciones'
+  devise:
+    sessions:
+      user:
+        signed_in: 'Ingresaste exitosamente al aplicativo'
+  meta_title: 'Aplicativo de activo fijo'
+  activerecord:
+    models:
+      active: Activo
+      destination: Destino
+      ubication: Ubicacion
+    attributes:
+      active:
+        plate: 'Placa'
+        barcode: 'Código de barras'
+        name: 'Nombre'
+        serial: 'Serie'
+        active_type_id: 'Id del tipo de activo'
+        status: 'Estado'
+        rankactive_id: 'Id de la jerarquia'
+        dad: 'Datos del padre'
+        user_id: 'Responsable'
+        destination_id: ' El destino'
+        ubication_id: 'La ubicación'
+      zone:
+        id: 'identificador de la zona'
+        description: 'El nombre de la zona'
+      center:
+        id: 'identificador del centro de costo'
+        name: 'nombre del centro de costo'
+      destination:
+        id: 'identificador del destino'
+        description: 'El nombre del destino'
+      ubication:
+        id: 'identificador de la ubicación'
+        destination_id: 'El destino'
+      active_type:
+        id: 'Identificador del tipo de activo'
+        description: 'El nombre del tipo de activo'
+      user: 
+        email: 'correo electrónico'
+        password: 'contraseña'
+        role: 'rol'
+        name: 'nombre'
+    
+    
+  

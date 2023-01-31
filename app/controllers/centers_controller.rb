@@ -41,7 +41,7 @@ class CentersController < ApplicationController
 
     respond_to do |format|
       if @center.save
-        format.html { redirect_to centers_path, notice: 'Tu producto se ha creado correctamente', status: :see_other }
+        format.html { redirect_to centers_path, notice: 'Tu centro de costo se ha creado correctamente', status: :see_other }
         format.json { render :show, status: :created, location: @center }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -54,7 +54,7 @@ class CentersController < ApplicationController
   def update
     respond_to do |format|
       if @center.update(center_params)
-        format.html { redirect_to centers_path, notice: 'Tu producto se ha actualizado correctamente', status: :see_other }
+        format.html { redirect_to centers_path, notice: 'Tu centro de costo se ha actualizado correctamente', status: :see_other }
         format.json { render :show, status: :ok, location: @center }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -67,7 +67,7 @@ class CentersController < ApplicationController
   def destroy
     center = Center.find(params[:id])
     center.destroy
-    redirect_to centers_path, notice: 'Tu producto se ha eliminado correctamente', status: :see_other
+    redirect_to centers_path, notice: 'Tu centro de costo se ha eliminado correctamente', status: :see_other
   end
   
   private

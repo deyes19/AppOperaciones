@@ -8,7 +8,7 @@ class DestinationsController < ApplicationController
 
     CsvImportDestinationsService.new.call(file)
 
-    redirect_to destinations_path, notice: 'ZONAS IMPORTADAS EXITOSAMENTE'
+    redirect_to destinations_path, notice: 'DESTINOS IMPORTADOS EXITOSAMENTE'
   end
   # GET /zones or /zones.json
   def index

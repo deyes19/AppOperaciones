@@ -108,7 +108,7 @@ class ActivesController < ApplicationController
   def destroy
     active = Active.find(params[:id])
     active.destroy
-    redirect_to actives_path, notice: 'Tu producto se ha eliminado correctamente', status: :see_other
+    redirect_to actives_path, notice: 'Tu activo se ha eliminado correctamente', status: :see_other
   end
 
 

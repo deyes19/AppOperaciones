@@ -7,7 +7,7 @@ class UbicationsController < ApplicationController
 
     CsvImportUbicationsService.new.call(file)
 
-    redirect_to ubications_path, notice: 'CENTROS DE COSTO IMPORTADOS EXITOSAMENTE'
+    redirect_to ubications_path, notice: 'UBICACIONES IMPORTADOS EXITOSAMENTE'
   end
 
   # GET /ubications or /ubications.json
@@ -38,7 +38,7 @@ class UbicationsController < ApplicationController
 
     respond_to do |format|
       if @ubication.save
-        format.html { redirect_to ubications_url(@ubication), notice: "Ubication was successfully created." }
+        format.html { redirect_to ubications_url(@ubication), notice: "Ubicación fué creada exitosamente." }
         format.json { render :show, status: :created, location: @ubication }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -51,7 +51,7 @@ class UbicationsController < ApplicationController
   def update
     respond_to do |format|
       if @ubication.update(ubication_params)
-        format.html { redirect_to ubications_path, notice: "Ubication was successfully updated." }
+        format.html { redirect_to ubications_path, notice: "La ubicación fue actualizada." }
         format.json { render :show, status: :ok, location: @ubication }
       else
         format.html { render :edit, status: :unprocessable_entity }
