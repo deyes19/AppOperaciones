@@ -1,7 +1,7 @@
 <%= form_with(model: active_type) do |form| %>
   <% if active_type.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(active_type.errors.count, "error") %> prohibited this active_type from being saved:</h2>
+      <h2><%= pluralize(active_type.errors.count, "error") %> prohibieron guardar el tipo de activo:</h2>
 
       <ul>
         <% active_type.errors.each do |error| %>
