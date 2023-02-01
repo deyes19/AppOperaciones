@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :relocations
+  resources :statuses
   resources :rankactives
   get '/search_active', to: 'users#search_active', as: 'search_active'
   devise_for :users

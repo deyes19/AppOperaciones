@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_solicited: 2023-02-01 15:59:08
+  date_accept: 2023-02-01 15:59:08
+  _: MyString
+
+two:
+  date_solicited: 2023-02-01 15:59:08
+  date_accept: 2023-02-01 15:59:08
+  _: MyString

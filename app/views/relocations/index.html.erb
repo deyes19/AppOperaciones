@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Relocations</h1>
+
+<div id="relocations">
+  <% @relocations.each do |relocation| %>
+    <%= render relocation %>
+    <p>
+      <%= link_to "Show this relocation", relocation %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New relocation", new_relocation_path %>

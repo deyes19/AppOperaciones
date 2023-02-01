@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_21_164401) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_01_214911) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,9 +34,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_21_164401) do
     t.integer "plate"
     t.bigint "rankactive_id", null: false
     t.string "dad"
-    t.index ["active_type_id", "plate"], name: "index_actives_on_active_type_id_and_plate"
     t.index ["active_type_id"], name: "index_actives_on_active_type_id"
     t.index ["destination_id"], name: "index_actives_on_destination_id"
+    t.index ["rankactive_id", "plate"], name: "index_actives_on_rankactive_id_and_plate", unique: true
     t.index ["rankactive_id"], name: "index_actives_on_rankactive_id"
     t.index ["ubication_id"], name: "index_actives_on_ubication_id"
     t.index ["user_id"], name: "index_actives_on_user_id"
@@ -89,8 +89,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_21_164401) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "relocations", force: :cascade do |t|
+    t.datetime "date_solicited"
+    t.datetime "date_accept"
+    t.string "_"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "status_id", null: false
+    t.index ["status_id"], name: "index_relocations_on_status_id"
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "statuses", force: :cascade do |t|
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -144,6 +160,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_21_164401) do
   add_foreign_key "actives", "users"
   add_foreign_key "centers", "zones"
   add_foreign_key "destinations", "centers"
+  add_foreign_key "relocations", "statuses"
   add_foreign_key "ubications", "destinations"
   add_foreign_key "users", "roles"
 end
