@@ -1,2 +1,0 @@
-class Relocation < ApplicationRecord
-end
